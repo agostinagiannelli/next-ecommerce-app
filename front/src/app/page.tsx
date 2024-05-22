@@ -1,11 +1,11 @@
-import { Card } from "@/components/card";
-import { products } from "../../helpers/products";
-import Image from "next/image";
+import Image from 'next/image'
+import Card from '@/components/card/Card'
+import { products } from '../../helpers/products'
 
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div >
+      <div>
         <Image
           className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
           src="/logo.svg"
@@ -26,9 +26,10 @@ export default function Home() {
             description={product.description}
             price={product.price}
             image={product.image}
+            category={product.category}
           />
         ))}
       </div>
     </main>
-  );
+  )
 }
