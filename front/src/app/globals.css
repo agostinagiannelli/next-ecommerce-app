@@ -17,3 +17,14 @@
     text-wrap: balance;
   }
 } */
+
+.special-block {
+  transition-timing-function: ease-out;
+  transition-duration: 0.1s;
+  transition-property: all;
+}
+
+.special-block:hover {
+  transform: translate(-0.20rem, -0.20rem);
+  box-shadow: .20rem .20rem 0rem black;
+}

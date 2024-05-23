@@ -1,35 +1,25 @@
-import Image from 'next/image'
-import Card from '@/components/card/Card'
-import { products } from '../../helpers/products'
+import ButtonDark from '@/components/Button/ButtonDark'
 
-export default function Home() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div>
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/logo.svg"
-          alt="Codecraft Logo"
-          width={300}
-          height={100}
-          priority
-        />
-      </div>
-      <h1 className="text-4xl font-bold text-center text-gray-700 dark:text-gray-300">
-        Welcome to Codecraft
-      </h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {products.map(product => (
-          <Card
-            key={product.id}
-            name={product.name}
-            description={product.description}
-            price={product.price}
-            image={product.image}
-            category={product.category}
-          />
-        ))}
-      </div>
-    </main>
-  )
+const Landing = () => {
+    return (
+        <div className="relative flex items-center justify-center min-h-screen bg-center bg-cover" style={{ backgroundImage: "url('/pattern.webp')" }}>
+            <img src="/logo.svg" className="absolute h-8 top-36" alt="Codecraft Logo" />
+            <div className="max-w-screen-xl px-4 py-8 text-center">
+                <a href="#" className="inline-flex items-center justify-between px-1 py-1 text-sm bg-white rounded-full mb-7">
+                    <span className="text-base px-4 py-1.5">Already with us?</span>
+                    <span >
+                        <ButtonDark>Login</ButtonDark>
+                    </span>
+                </a>
+                <h1 className="mb-10 text-4xl font-extrabold tracking-tight md:text-5xl lg:text-6xl">Your one-stop shop for all things tech.</h1>
+                <p className="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 lg:px-48">
+                    <span className="block">We provide a wide range of products from top brands in the tech industry.</span>
+                    <span className="block">Ready to shop? Create an account with us.</span>
+                </p>
+                <a href="#" className="inline-flex items-center text-lg font-medium text-primary hover:underline">Get started →</a>
+            </div>
+        </div>
+    )
 }
+
+export default Landing

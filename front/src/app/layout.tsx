@@ -1,29 +1,38 @@
-import React from 'react'
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
-import NavBar from '@/components/Navbar'
-import Footer from '@/components/Footer'
 import './globals.css'
 
 const MabryPro = localFont({
   src: [
     {
-      path: '../fonts/MabryPro.woff2',
+      path: '../fonts/MabryPro-Light.woff2',
       style: 'normal',
+      weight: '300',
     },
     {
-      path: '../fonts/MabryPro-italic.woff2',
-      style: 'italic',
-    },
-    {
-      path: '../fonts/MabryPro-700.woff2',
-      weight: '700',
+      path: '../fonts/MabryPro-Regular.woff2',
       style: 'normal',
+      weight: '500',
     },
     {
-      path: '../fonts/MabryPro-700-italic.woff2',
-      weight: '700',
+      path: '../fonts/MabryPro-Italic.woff2',
       style: 'italic',
+      weight: '500',
+    },
+    {
+      path: '../fonts/MabryPro-Medium.woff2',
+      style: 'normal',
+      weight: '600',
+    },
+    {
+      path: '../fonts/MabryPro-Bold.woff2',
+      style: 'normal',
+      weight: '700',
+    },
+    {
+      path: '../fonts/MabryPro-Black.woff2',
+      style: 'normal',
+      weight: '900',
     },
   ],
 })
@@ -41,9 +50,7 @@ export default function Layout({
   return (
     <html lang="en">
       <body className={MabryPro.className}>
-        <NavBar />
-        <main>{children}</main>
-        <Footer />
+        {children}
       </body>
     </html>
   )
