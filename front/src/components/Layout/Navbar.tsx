@@ -2,7 +2,6 @@ import Link from 'next/link'
 import ButtonDark from '../Button/ButtonDark'
 import ButtonLight from '../Button/ButtonLight'
 import { categories } from '../../../helpers/categories'
-import { convertToSlug } from '../../../helpers/slug'
 
 const Navbar = () => {
     return (
@@ -28,7 +27,7 @@ const Navbar = () => {
                     <ul className="flex flex-row mt-0 space-x-8 text-sm font-medium overflow-x-auto mr-6">
                         {categories.map((category, index) => (
                             <li key={index}>
-                                <Link href={`/shop/category/${convertToSlug(category.name)}`} className="text-black hover:underline" aria-current="page">{category.name}</Link>
+                                <Link href={`/shop/category/${(index + 1)}`} className="text-black hover:underline" aria-current="page">{category.name}</Link>
                             </li>
                         ))}
                     </ul>

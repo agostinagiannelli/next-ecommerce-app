@@ -1,19 +1,18 @@
 import Link from 'next/link'
 import ButtonDark from '../Button/ButtonDark'
 import { IProduct } from '@/types/IProduct'
-import { convertToSlug } from '../../../helpers/slug'
 
-const Card: React.FC<IProduct> = ({ name, shortDescription, price, image, rating }) => {
+const Card: React.FC<IProduct> = ({ id, name, shortDescription, price, image, rating }) => {
     return (
         <div>
             <div className="w-full bg-white border border-black rounded-lg">
-                <Link href={`/shop/product/${convertToSlug(name)}`}>
+                <Link href={`/shop/product/${id}`}>
                     <div className="flex items-center justify-center p-8 h-72">
                         <img className="object-contain h-full" src={image} alt={name} />
                     </div>
                 </Link>
                 <div className="px-5 pb-5">
-                    <Link href={`/shop/product/${convertToSlug(name)}`}>
+                    <Link href={`/shop/product/${id}`}>
                         <h5 className="text-xl font-bold tracking-tight text-black">{name}</h5>
                     </Link>
                     <h5 className="mb-3 text-base tracking-tight text-contrast">{shortDescription}</h5>
@@ -26,7 +25,7 @@ const Card: React.FC<IProduct> = ({ name, shortDescription, price, image, rating
                         <span className="bg-gray-100 text-black text-xs px-2.5 py-0.5 rounded ms-2">{rating}</span>
                     </div>
                     <div className="flex items-center justify-between">
-                        <span className="text-3xl font-bold text-gray-900 dark:text-white">${price}</span>
+                        <span className="text-3xl font-bold text-gray-900">${price}</span>
                         <ButtonDark>Add to Cart</ButtonDark>
                     </div>
                 </div >
