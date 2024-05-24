@@ -4,7 +4,11 @@ import Link from 'next/link'
 const Landing = () => {
     return (
         <div className="relative flex items-center justify-center min-h-screen bg-center bg-cover" style={{ backgroundImage: "url('/pattern.webp')" }}>
-            <img src="/logo.svg" className="absolute h-8 top-36" alt="Codecraft Logo" />
+            <div className="absolute top-36 w-full flex justify-center">
+                <Link href="/shop">
+                    <img src="/logo.svg" className="h-8" alt="Codecraft Logo" />
+                </Link>
+            </div>
             <div className="max-w-screen-xl px-4 py-8 text-center">
                 <div className="inline-flex items-center justify-between px-1 py-1 text-sm bg-gray-200 rounded-full mb-7">
                     <span className="text-base px-4 py-1.5">Already with us?</span>

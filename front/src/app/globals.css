@@ -20,11 +20,11 @@
 
 .special-block {
   transition-timing-function: ease-out;
-  transition-duration: 0.1s;
+  transition-duration: 0.2s;
   transition-property: all;
 }
 
 .special-block:hover {
-  transform: translate(-0.20rem, -0.20rem);
-  box-shadow: .20rem .20rem 0rem black;
+  transform: translate(-0.25rem, -0.25rem);
+  box-shadow: .25rem .25rem 0rem black;
 }
