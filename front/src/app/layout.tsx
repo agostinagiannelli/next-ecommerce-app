@@ -42,11 +42,7 @@ export const metadata: Metadata = {
   description: "Your one-stop shop for all things tech.",
 }
 
-export default function Layout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body className={MabryPro.className}>

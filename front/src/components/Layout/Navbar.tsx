@@ -1,16 +1,15 @@
-import Link from 'next/link'
 import ButtonDark from '../Button/ButtonDark'
 import ButtonLight from '../Button/ButtonLight'
-import { categories } from '../../../helpers/categories'
+import LinkNavbar from '../Link/LinkNavbar'
+import LinkLogo from '../Link/LinkLogo'
+import { categories } from '../../helpers/categories'
 
 const Navbar = () => {
     return (
         <div className="w-full bg-white border-b border-black">
             <nav className="px-4 pt-4">
                 <div className="flex flex-wrap items-center justify-between max-w-screen-xl mx-auto">
-                    <Link href="/shop">
-                        <img src="/logo.svg" className="h-6" alt="Codecraft Logo" />
-                    </Link>
+                    <LinkLogo href="/shop" className="h-6" />
                     <div className="flex items-center space-x-2">
                         <ButtonLight>Login</ButtonLight>
                         <ButtonDark>
@@ -27,7 +26,7 @@ const Navbar = () => {
                     <ul className="flex flex-row mt-0 space-x-8 text-sm font-medium overflow-x-auto mr-6">
                         {categories.map((category, index) => (
                             <li key={index}>
-                                <Link href={`/shop/category/${(index + 1)}`} className="text-black hover:underline" aria-current="page">{category.name}</Link>
+                                <LinkNavbar href={`/shop/category/${(index + 1)}`}>{category.name}</LinkNavbar>
                             </li>
                         ))}
                     </ul>
