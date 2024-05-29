@@ -1,6 +1,6 @@
-import { ICategory } from '@/types/ICategory';
+import { CategoryProps } from '@/types/CategoryProps';
 
-export const categories: ICategory[] = [
+export const categories: CategoryProps[] = [
     { name: 'Smartphones' },
     { name: 'Laptops' },
     { name: 'Tablets' },

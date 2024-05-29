@@ -1,11 +1,13 @@
 import Link from "next/link"
-import { LinkProps } from "./types"
+import { LinkProps } from "@/types/LinkProps"
 
-const LinkTextArrow: React.FC<LinkProps> = ({ href, children }) => {
+const LinkTextArrow: React.FC<LinkProps> = ({ href, children, className }) => {
     return (
-        <Link href={href} className="inline-flex items-center text-lg font-medium text-primary hover:underline">
-            {children} →
-        </Link>
+        <div className={className}>
+            <Link href={href} className="text-lg hover:underline">
+                {children} →
+            </Link>
+        </div>
     )
 }
 

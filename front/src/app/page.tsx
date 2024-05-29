@@ -6,16 +6,15 @@ import LinkTextArrow from '@/components/Link/LinkTextArrow'
 
 const Landing = () => {
     return (
-        <div className="relative flex items-center justify-center min-h-screen bg-center bg-cover" style={{ backgroundImage: "url('/pattern.webp')" }}>
-            <div className="absolute top-36 w-full flex justify-center">
-                <LinkLogo href="/shop" className="h-8" />
-            </div>
-            <div className="max-w-screen-xl px-4 py-8 text-center">
-                <RoundedText text="Already with us?" button="Login" />
-                <Heading4xl>Your one-stop shop for all things tech.</Heading4xl>
-                <Subheading>We provide a wide range of products from top brands in the tech industry. Ready to shop? Create an account with us.</Subheading>
-                <LinkTextArrow href="/shop">Get started</LinkTextArrow>
-            </div>
+        <div className="flex flex-col items-center my-24 text-center">
+            <LinkLogo href="/shop" className="h-8 mb-24" />
+            <RoundedText text="Already with us?" button="Login" />
+            <Heading4xl>Your one-stop shop for all things tech.</Heading4xl>
+            <Subheading>
+                <div>We provide a wide range of products from top brands in the tech industry.</div>
+                <div>Ready to shop? Create an account with us.</div>
+            </Subheading>
+            <LinkTextArrow href="/shop" className="text-primary">Get Started</LinkTextArrow>
         </div>
     )
 }

@@ -1,4 +1,4 @@
-export interface ICategory {
+export interface CategoryProps {
     id?: number;
     name: string;
 }

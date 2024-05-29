@@ -1,11 +1,11 @@
-export interface IProduct {
+export interface ProductProps {
   id?: number;
   name: string;
-  shortDescription: string;
   description: string;
   price: number;
   stock: number;
   image: string;
   categoryId: number;
-  rating: number;
+  shortDescription?: string;
+  rating?: number;
 }

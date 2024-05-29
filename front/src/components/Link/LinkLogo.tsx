@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { LinkProps } from "./types"
+import { LinkProps } from "@/types/LinkProps"
 
 const LinkLogo: React.FC<LinkProps> = ({ href, className }) => {
     return (

@@ -1,5 +1,8 @@
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
+import Navbar from '@/components/Layout/Navbar'
+import Footer from '@/components/Layout/Footer'
+import Container from '@/components/Layout/Container'
 import './globals.css'
 
 const MabryPro = localFont({
@@ -46,7 +49,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body className={MabryPro.className}>
-        {children}
+        <Navbar />
+        <main>
+          <Container>
+            {children}
+          </Container>
+        </main>
+        <Footer />
       </body>
     </html>
   )

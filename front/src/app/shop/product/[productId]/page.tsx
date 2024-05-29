@@ -1,6 +1,11 @@
-const Product = ({ params }: any) => {
+import ProductDetail from "@/components/Product/ProductDetail"
+
+const Product = ({ params }: { params: { productId: number } }) => {
     return (
-        <div>Product: {params.productId}</div>
+        <>
+            {/* Product: {params.productId} */}
+            <ProductDetail />
+        </>
     )
 }
 

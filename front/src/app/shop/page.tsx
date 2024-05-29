@@ -1,7 +1,7 @@
 import Video from '@/components/Block/Video'
 import Heading3xl from '@/components/Text/Heading3xl'
 import Cards from '@/components/Card/Cards'
-import { products } from '../../helpers/products'
+import { products } from '@/utils/products'
 
 const Shop = () => {
   return (
@@ -11,9 +11,9 @@ const Shop = () => {
         title="Designed to amaze you."
         href="/shop/product/1"
       />
-      <Heading3xl>
-        Shop Best Sellers
-      </Heading3xl>
+      <div className="text-center">
+        <Heading3xl>Shop Best Sellers</Heading3xl>
+      </div>
       <Cards products={products} />
     </>
   )
