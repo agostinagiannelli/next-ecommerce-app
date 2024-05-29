@@ -1,27 +1,20 @@
 import Heading3xl from '@/components/Text/Heading3xl'
 import ButtonDark from '../Button/ButtonDark'
 import Rating from '../Text/Rating'
+import { ProductProps } from '@/types/ProductProps'
 
-const ProductDetail = () => {
-    const product = {
-        name: 'iPhone 11',
-        description: 'Capture stunning moments with its dual-camera system, enjoy exceptional performance, and immerse yourself in a brilliant Liquid Retina display. Discover a world of possibilities in the palm of your hand!',
-        price: 699,
-        image: 'https://www.stopandclick.es/wp-content/uploads/2022/03/iphone11-purple-select-2019_GEO_EMEA.-StopClick.png',
-        rating: 4.5
-    };
-
+const ProductDetail: React.FC<{ product: ProductProps | undefined }> = ({ product }) => {
     return (
-        <div className="lg:mt-16">
+        <div className="lg:mt-8">
             <div className="grid items-center grid-cols-1 gap-12 lg:grid-cols-2">
                 <div className="flex items-center justify-center p-8 h-96">
-                    <img className="object-contain h-full" src={product.image} alt={product.name} />
+                    <img className="object-contain h-full" src={product?.image} alt={product?.name} />
                 </div>
                 <div>
-                    <Rating>{product.rating}</Rating>
-                    <Heading3xl>{product.name}</Heading3xl>
-                    <p className="my-5 text-lg text-contrast">{product.description}</p>
-                    <p className="my-5 text-3xl font-bold">${product.price}</p>
+                    <Rating>{product?.rating}</Rating>
+                    <Heading3xl>{product?.name}</Heading3xl>
+                    <p className="my-5 text-lg text-contrast">{product?.description}</p>
+                    <p className="my-5 text-3xl font-bold">${product?.price}</p>
                     <ButtonDark>Add to Cart</ButtonDark>
                     <ul className="mt-8 space-y-2">
                         <li className="flex items-center text-sm font-medium text-gray-600">

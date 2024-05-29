@@ -6,7 +6,6 @@ interface Errors {
     email?: string;
     address?: string;
     phone?: string;
-    username?: string;
     password?: string;
 }
 
@@ -32,11 +31,6 @@ export function validateRegister(values: UserProps) {
     } else if (!/^\d{7,15}$/i.test(values.phone)) {
         errors.phone = `⚠️ Phone numbers should have 7-15 digits`;
     }
-    if (!values.username) {
-        errors.username = `⚠️ Hey, this one's mandatory!`;
-    } else if (!/^[a-zA-Z0-9]{4,20}$/i.test(values.username)) {
-        errors.username = `⚠️ Usernames can only have letters and numbers, 4-20 characters`;
-    }
     if (!values.password) {
         errors.password = `⚠️ Hey, this one's mandatory!`;
     } else if (!/^[a-zA-Z0-9]{4,20}$/i.test(values.password)) {
@@ -47,8 +41,8 @@ export function validateRegister(values: UserProps) {
 
 export function validateLogin(values: CredentialsProps) {
     const errors: Errors = {};
-    if (!values.username) {
-        errors.username = `⚠️ Hey, this one's mandatory!`;
+    if (!values.email) {
+        errors.email = `⚠️ Hey, this one's mandatory!`;
     }
     if (!values.password) {
         errors.password = `⚠️ Hey, this one's mandatory!`;

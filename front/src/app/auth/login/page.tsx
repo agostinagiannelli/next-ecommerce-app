@@ -7,8 +7,8 @@ const Login = () => {
     <>
       <Heading4xl>Login</Heading4xl>
       <div className="flex gap-2">
-      <span className="text-lg text-contrast">New here?</span>
-        <LinkTextArrow href="/register" className="text-primary">Register</LinkTextArrow>
+        <span className="text-lg text-contrast">New here?</span>
+        <LinkTextArrow href="/auth/register" className="text-primary">Register</LinkTextArrow>
       </div>
       <LoginForm />
     </>

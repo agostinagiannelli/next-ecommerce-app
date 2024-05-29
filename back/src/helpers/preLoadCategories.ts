@@ -10,12 +10,9 @@ const categoriesToPreLoad: ICategory[] = [
     { name: 'Smartphones' },
     { name: 'Laptops' },
     { name: 'Tablets' },
+    { name: 'Accessories' },
     { name: 'Headphones' },
-    { name: 'Cameras' },
-    { name: 'Printers' },
-    { name: 'Monitors' },
-    { name: 'Storage' },
-    { name: 'Accessories' }
+    { name: 'Speakers' }
 ];
 
 export const preLoadCategories = async () => {

@@ -8,7 +8,7 @@ const Register = () => {
       <Heading4xl>Register</Heading4xl>
       <div className="flex gap-2">
         <span className="text-lg text-contrast">Already with us?</span>
-        <LinkTextArrow href="/login" className="text-primary">Login</LinkTextArrow>
+        <LinkTextArrow href="/auth/login" className="text-primary">Login</LinkTextArrow>
       </div>
       <RegisterForm />
     </>
