@@ -1,4 +1,4 @@
-import LinkButtonDark from "../Link/LinkButtonDark"
+import LinkButtonDark from "@/components/Link/LinkButtonDark"
 
 interface RoundedTextButtonProps {
     text: string,

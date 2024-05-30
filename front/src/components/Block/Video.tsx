@@ -1,4 +1,4 @@
-import LinkTextArrow from "../Link/LinkTextArrow"
+import LinkTextArrow from "@/components/Link/LinkTextArrow"
 
 interface VideoProps {
     title: string,

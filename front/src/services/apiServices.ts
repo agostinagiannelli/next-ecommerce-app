@@ -13,7 +13,7 @@ export async function getProducts() {
         const products: ProductProps[] = await response.json()
         return products
     } catch (error: any) {
-        console.error(error);
+        console.error(error.message);
     }
 };
 
@@ -24,7 +24,7 @@ export async function getProductById(id: string) {
         if (!product) throw new Error('Product not found')
         return product
     } catch (error: any) {
-        console.error(error);
+        console.error(error.message);
     }
 };
 
@@ -40,7 +40,7 @@ export async function loginUser(credentials: CredentialsProps) {
         const data = await response.json()
         return data
     } catch (error: any) {
-        console.error(error);
+        console.error(error.message);
     }
 }
 
@@ -56,75 +56,40 @@ export async function registerUser(user: UserProps) {
         const data = await response.json()
         return data
     } catch (error: any) {
-        console.error(error);
+        console.error(error.message);
     }
 }
 
-export async function getOrders(userId: number) {
+export async function getOrders(userId: number, token: string) {
     try {
         const response = await fetch(`${API_URL}/users/orders`, {
             method: 'GET',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
             },
             body: JSON.stringify(userId)
         })
         const data = await response.json()
         return data
     } catch (error: any) {
-        console.error(error);
+        console.error(error.message);
     }
 }
 
-// export async function createOrder(userId: number, products: ProductProps[]) {
-//     try {
-//         const response = await fetch(`${API_URL}/orders`, {
-//             method: 'POST',
-//             headers: {
-//                 'Content-Type': 'application/json'
-//             },
-//             body: JSON.stringify({ userId, products })
-//         })
-//         const data = await response.json()
-//         return data
-//     } catch (error: any) {
-//         console.error(error);
-//     }
-// }
-
-
-//? M3
-
-// export async function getUsers() {
-//     const response = await apiService.get('/users');
-//     return response.data;
-// };
-// export async function getUserById(id) {
-//     const response = await apiService.get(`/users/${id}`);
-//     return response.data;
-// };
-// export async function registerUser(user) {
-//     const response = await apiService.post('/users/register', user);
-//     return response.data;
-// };
-// export async function loginUser(credential) {
-//     const response = await apiService.post('/users/login', credential);
-//     return response.data;
-// };
-
-// export async function getAppointments() {
-//     const response = await apiService.get(`/appointments/`);
-//     return response.data;
-// };
-// export async function getAppointmentById(id) {
-//     const response = await apiService.get(`/appointments/${id}`);
-//     return response.data;
-// };
-// export async function scheduleAppointment(appointment) {
-//     const response = await apiService.post('/appointments/schedule', appointment);
-//     return response.data;
-// };
-// export async function cancelAppointment(id) {
-//     const response = await apiService.put(`/appointments/cancel/${id}`);
-//     return response.data;
-// };
+export async function createOrder(userId: number, token: string, products: number[]) {
+    try {
+        const response = await fetch(`${API_URL}/orders`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify({ userId, products })
+        })
+        const data = await response.json()
+        return data
+    } catch (error: any) {
+        console.error(error.message);
+    }
+}

@@ -1,7 +1,7 @@
-import Heading4xl from '@/components/Text/Heading4xl'
-import Subheading from '@/components/Text/Subheading'
-import RoundedTextButton from '@/components/Block/RoundedTextButton'
-import LinkTextArrow from '@/components/Link/LinkTextArrow'
+import Heading4xl from "@/components/Text/Heading4xl"
+import Subheading from "@/components/Text/Subheading"
+import RoundedTextButton from "@/components/Block/RoundedTextButton"
+import LinkTextArrow from "@/components/Link/LinkTextArrow"
 
 const Landing = () => {
     return (

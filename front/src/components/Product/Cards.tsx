@@ -1,5 +1,5 @@
-import Card from '@/components/Product/Card'
-import { ProductProps } from '@/types/ProductProps'
+import Card from "@/components/Product/Card"
+import { ProductProps } from "@/types/ProductProps"
 
 const Cards: React.FC<{ products: ProductProps[] | undefined }> = ({ products }) => {
     return (

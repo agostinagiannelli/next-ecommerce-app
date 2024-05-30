@@ -1,50 +1,42 @@
-'use client'
+"use client"
 
-import { useState, useEffect } from 'react'
-import LinkButtonDark from '../Link/LinkButtonDark'
-import LinkButtonLight from '../Link/LinkButtonLight'
 import Link from "next/link"
+import { useAuth } from "@/context/AuthContext"
+import { useCart } from "@/context/CartContext"
+import LinkButtonDark from "@/components/Link/LinkButtonDark"
+import LinkButtonLight from "@/components/Link/LinkButtonLight"
 
 const NavLogo = () => {
-    const [token, setToken] = useState(localStorage.getItem('token') ?? null)
-
-    useEffect(() => {
-        const token = localStorage.getItem('token')
-        setToken(token)
-    }, [])
+    const { token } = useAuth();
+    const { cartItems } = useCart();
 
     return (
         <nav className="py-3">
             <div className="flex flex-wrap items-center justify-between max-w-screen-xl mx-auto">
+                <Link href="/store">
+                    <img src="/logo.svg" className="h-5" alt="Codecraft Logo" />
+                </Link>
                 {token ?
-                    <>
-                        <Link href="/store">
-                            <img src="/logo.svg" className="h-5" alt="Codecraft Logo" />
-                        </Link>
-                        <div className="flex items-center space-x-2">
-                            <LinkButtonLight href="/user/1">
-                                Profile
-                            </LinkButtonLight>
-                            <LinkButtonDark href="">
+                    <div className="flex items-center space-x-2">
+                        <LinkButtonLight href="/user">Profile</LinkButtonLight>
+                        <LinkButtonDark href="/cart" className="relative">
+                            <span className="relative">
                                 <svg className="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                                 </svg>
-                                <span className="sr-only">Cart</span>
-                            </LinkButtonDark>
-                        </div>
-                    </>
+                                {cartItems.length > 0 && (
+                                    <span className="absolute flex items-center justify-center w-5 h-5 text-xs font-bold text-black transform bg-white rounded-full translate-x-2/3 -translate-y-2/3 top-1 right-1">
+                                        {cartItems.length}
+                                    </span>
+                                )}
+                            </span>
+                        </LinkButtonDark>
+                    </div>
                     :
-                    <>
-                        <img src="/logo.svg" className="h-5" alt="Codecraft Logo" />
-                        <div className="flex items-center space-x-2">
-                            <LinkButtonLight href="/auth/login">
-                                Login
-                            </LinkButtonLight>
-                        </div>
-                    </>
+                    <LinkButtonLight href="/auth/login" className="flex items-center space-x-2">Login</LinkButtonLight>
                 }
             </div>
-        </nav >
+        </nav>
     )
 }
 

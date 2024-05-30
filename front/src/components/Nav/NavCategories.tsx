@@ -1,5 +1,5 @@
-import LinkNavbar from '../Link/LinkNavbar'
-import { categories } from '../../utils/categories'
+import { categories } from "@/utils/categories"
+import LinkNavbar from "@/components/Link/LinkNavbar"
 
 const Navbar = () => {
     return (

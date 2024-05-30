@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+@import '~react-toastify/dist/ReactToastify.min.css';
+
+@layer base {
+  @font-face {
+    font-family: 'MabryPro';
+    src: url('../assets/fonts/MabryPro-Light.woff2') format('woff2') 300,
+      url('../assets/fonts/MabryPro-Regular.woff2') format('woff2') 500,
+      url('../assets/fonts/MabryPro-Italic.woff2') format('woff2') italic 500,
+      url('../assets/fonts/MabryPro-Medium.woff2') format('woff2') 600,
+      url('../assets/fonts/MabryPro-Bold.woff2') format('woff2') 700,
+      url('../assets/fonts/MabryPro-Black.woff2') format('woff2') 900;
+  }
+}
+
 .special-block {
   transition-timing-function: ease-out;
   transition-duration: 0.2s;

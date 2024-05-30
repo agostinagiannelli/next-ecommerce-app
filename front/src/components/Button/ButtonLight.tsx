@@ -1,14 +1,17 @@
-import { ButtonProps } from '@/types/ButtonProps'
+import { ButtonProps } from "@/types/ButtonProps"
 
-const ButtonLight: React.FC<ButtonProps> = ({ children, type, disabled }) => {
+const ButtonLight: React.FC<ButtonProps> = ({ children, type, disabled, onClick, className }) => {
     return (
-        <button
-            className="special-block border border-black rounded-full text-base px-5 py-2.5 text-center"
-            type={type}
-            disabled={disabled}
-        >
-            {children}
-        </button>
+        <div className={className}>
+            <button
+                className="special-block border border-black rounded-full text-base px-5 py-2.5 text-center"
+                type={type}
+                disabled={disabled}
+                onClick={onClick}
+            >
+                {children}
+            </button>
+        </div>
     )
 }
 

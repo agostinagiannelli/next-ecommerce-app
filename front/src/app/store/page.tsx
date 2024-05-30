@@ -1,8 +1,7 @@
-import Video from '@/components/Block/Video'
-import Heading3xl from '@/components/Text/Heading3xl'
-import Cards from '@/components/Product/Cards'
-import { getProducts } from '@/services/apiServices'
-import Categories from '@/components/Block/Categories'
+import { getProducts } from "@/services/apiServices"
+import Heading3xl from "@/components/Text/Heading3xl"
+import Cards from "@/components/Product/Cards"
+import Video from "@/components/Block/Video"
 
 const Shop = async () => {
   const products = await getProducts();
@@ -18,7 +17,6 @@ const Shop = async () => {
         <Heading3xl>Shop Best Sellers</Heading3xl>
       </div>
       <Cards products={products} />
-      <Categories />
     </>
   )
 }

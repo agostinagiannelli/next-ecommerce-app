@@ -1,0 +1,35 @@
+import { toast } from "react-toastify"
+
+export function notifySuccess(message: string, onClose?: () => void) {
+    toast(`✅ ${message}`,
+        {
+            className: 'border border-black rounded-lg shadow-none',
+            bodyClassName: 'font-sans text-black',
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            onClose
+        })
+}
+
+export function notifyFailure(message: string, onClose?: () => void) {
+    toast(`🚫 ${message}`,
+        {
+            className: 'border border-black rounded-lg shadow-none',
+            bodyClassName: 'font-sans text-black',
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            onClose
+        })
+}
