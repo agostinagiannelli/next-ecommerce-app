@@ -41,6 +41,7 @@ const MabryPro = localFont({
       weight: '900',
     },
   ],
+  variable: '--font-MabryPro',
 })
 
 export const metadata: Metadata = {

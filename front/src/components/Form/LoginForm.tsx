@@ -10,6 +10,7 @@ import { CredentialsProps } from "@/types/CredentialsProps"
 import Input from "@/components/Form/Input"
 import ButtonLight from "@/components/Button/ButtonLight"
 import LinkTextArrow from "@/components/Link/LinkTextArrow"
+// import { toast } from 'react-toastify'
 
 const LoginForm = () => {
   const router = useRouter()
@@ -20,6 +21,18 @@ const LoginForm = () => {
       const data = await loginUser(values);
       if (data && data.token) {
         setAuthData(data.token, data.user);
+        // toast("✅ Test",
+        //   {
+        //     className: 'font-sans text-black border border-black rounded-lg shadow-none',
+        //     position: "top-right",
+        //     autoClose: 2000,
+        //     hideProgressBar: true,
+        //     closeOnClick: true,
+        //     pauseOnHover: true,
+        //     draggable: true,
+        //     progress: undefined,
+        //     theme: "light",
+        //   })
         notifySuccess('You’re in. Ready to start shopping?', () => router.push('/store'));
       } else {
         notifyFailure('Uh-oh, wrong email or password. Try again.');

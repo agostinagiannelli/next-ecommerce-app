@@ -3,8 +3,7 @@ import { toast } from "react-toastify"
 export function notifySuccess(message: string, onClose?: () => void) {
     toast(`✅ ${message}`,
         {
-            className: 'border border-black rounded-lg shadow-none',
-            bodyClassName: 'font-sans text-black',
+            className: 'font-sans text-black border border-black rounded-lg shadow-none',
             position: "top-right",
             autoClose: 2000,
             hideProgressBar: true,
@@ -20,8 +19,7 @@ export function notifySuccess(message: string, onClose?: () => void) {
 export function notifyFailure(message: string, onClose?: () => void) {
     toast(`🚫 ${message}`,
         {
-            className: 'border border-black rounded-lg shadow-none',
-            bodyClassName: 'font-sans text-black',
+            className: 'font-sans text-black border border-black rounded-lg shadow-none',
             position: "top-right",
             autoClose: 2000,
             hideProgressBar: true,
