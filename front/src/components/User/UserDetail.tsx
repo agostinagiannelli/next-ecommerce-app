@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation"
 import { useAuth } from "@/context/AuthContext"
+import { useCart } from "@/context/CartContext"
 import { notifySuccess } from "@/utils/notify"
 import { IOrder } from "@/types"
 import ButtonLight from "@/components/Button/ButtonLight"
@@ -11,9 +12,11 @@ import LinkTextArrowSm from "@/components/Link/LinkTextArrowSm"
 const UserDetail: React.FC<{ orders: IOrder[] | undefined }> = ({ orders }) => {
     const router = useRouter()
     const { token, user, setAuthData } = useAuth();
+    const { clearCart } = useCart();
 
     const handleLogout = () => {
         setAuthData(null, null);
+        clearCart();
         notifySuccess('Catch you later! We’re here for your next tech spree.', () => router.push('/store'));
     }
 

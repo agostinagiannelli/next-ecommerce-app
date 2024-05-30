@@ -28,6 +28,17 @@ export async function getProductById(id: string) {
     }
 };
 
+export async function getProductsByCategory(id: string) {
+    try {
+        const products = await getProducts()
+        const productsInCategory = products?.filter(product => product.categoryId.toString() === id)
+        if (productsInCategory?.length === 0) throw new Error('No products found for the given category')
+        return productsInCategory
+    } catch (error: any) {
+        console.error(error.message);
+    }
+};
+
 export async function loginUser(credentials: CredentialsProps) {
     try {
         const response = await fetch(`${API_URL}/users/login`, {
