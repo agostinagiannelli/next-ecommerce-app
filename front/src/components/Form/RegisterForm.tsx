@@ -1,7 +1,7 @@
 "use client"
 
-import { useRouter } from "next/navigation"
 import { Formik, Form } from "formik"
+import { useRouter } from "next/navigation"
 import { registerUser } from "@/services/apiServices"
 import { validateRegister } from "@/utils/validate"
 import { notifySuccess, notifyFailure } from "@/utils/notify"
@@ -15,14 +15,14 @@ const RegisterForm = () => {
 
   const handleSubmit = async (values: UserProps) => {
     try {
-      const data = await registerUser(values);
+      const data = await registerUser(values)
       if (data) {
-        notifySuccess('Welcome aboard! Login to start shopping.', () => router.push('/auth/login'));
+        notifySuccess('Welcome aboard! Login to start shopping.', () => router.push('/auth/login'))
       } else {
-        notifyFailure('Yikes, something went wrong. Try again.');
+        notifyFailure('Uh-oh, something went wrong. Try again.')
       }
     } catch (error: any) {
-      throw new Error(error);
+      throw new Error(error)
     }
   }
 
@@ -30,7 +30,7 @@ const RegisterForm = () => {
     <>
       <div className="flex gap-2">
         <span className="text-lg text-contrast">Already with us?</span>
-        <LinkTextArrow href="/auth/login" className="text-primary">Login</LinkTextArrow>
+        <LinkTextArrow href="/auth/login" className="text-lg text-primary">Login</LinkTextArrow>
       </div>
 
       <Formik

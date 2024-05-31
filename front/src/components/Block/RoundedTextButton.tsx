@@ -1,9 +1,9 @@
 import LinkButtonDark from "@/components/Link/LinkButtonDark"
 
 interface RoundedTextButtonProps {
-    text: string,
-    buttonLink: string,
-    buttonText: string,
+    text: string
+    buttonLink: string
+    buttonText: string
 }
 
 const RoundedTextButton: React.FC<RoundedTextButtonProps> = ({ text, buttonLink, buttonText }) => {

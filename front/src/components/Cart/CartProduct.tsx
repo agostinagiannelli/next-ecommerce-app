@@ -3,13 +3,13 @@ import { notifySuccess } from "@/utils/notify"
 import { ProductProps } from "@/types/ProductProps"
 
 const CartProduct: React.FC<{ product: ProductProps }> = ({ product }) => {
-    const { removeFromCart } = useCart();
+    const { removeFromCart } = useCart()
 
     const handleRemove = () => {
-        if (!product.id) return;
-        removeFromCart(product.id);
-        notifySuccess(`${product.name} removed from cart. Maybe next time?`);
-    };
+        if (!product.id) return
+        removeFromCart(product.id)
+        notifySuccess(`${product.name} removed from cart. Maybe next time?`)
+    }
 
     return (
         <li className="flex items-center gap-4">

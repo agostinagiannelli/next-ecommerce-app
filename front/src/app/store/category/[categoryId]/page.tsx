@@ -13,30 +13,30 @@ const Category = ({ params }: { params: { categoryId: string } }) => {
     const [categoryName, setCategoryName] = useState<string>("")
 
     useEffect(() => {
-        const fetchProduct = async () => {
+        const fetchProducts = async () => {
             try {
                 if (!params.categoryId) return
 
                 const categoryIndex = parseInt(params.categoryId, 10) - 1;
-                const categoryName = categories[categoryIndex]?.name || '';
+                const categoryName = categories[categoryIndex]?.name || "";
                 setCategoryName(categoryName)
 
                 const products = await getProductsByCategory(params.categoryId)
                 setProducts(products)
             }
             catch (error: any) {
-                console.error(error)
+                throw new Error(error)
             }
         }
 
-        fetchProduct()
-    }, [params.categoryId]);
+        fetchProducts()
+    }, [params.categoryId])
 
     return (
         <>
             <Heading3xl>{categoryName}</Heading3xl>
             <Cards products={products} />
-            <LinkTextArrow href="/store" className="mt-16 text-primary">Back to Shop</LinkTextArrow>
+            <LinkTextArrow href="/store" className="mt-16 text-lg text-primary">Back to Shop</LinkTextArrow>
         </>
     )
 }

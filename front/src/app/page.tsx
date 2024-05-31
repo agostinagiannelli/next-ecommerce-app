@@ -1,3 +1,4 @@
+import Link from "next/link"
 import Heading4xl from "@/components/Text/Heading4xl"
 import Subheading from "@/components/Text/Subheading"
 import RoundedTextButton from "@/components/Block/RoundedTextButton"
@@ -6,7 +7,9 @@ import LinkTextArrow from "@/components/Link/LinkTextArrow"
 const Landing = () => {
     return (
         <div className="flex flex-col items-center my-24 text-center h-52">
-            <img src="/logo.svg" className="h-8 mb-24" alt="Codecraft Logo" />
+            <Link href="/store">
+                <img src="/logo.svg" className="h-8 mb-24" alt="Codecraft Logo" />
+            </Link>
             <RoundedTextButton text="Already with us?" buttonLink="/auth/login" buttonText="Login" />
             <Heading4xl>Your one-stop shop for all things tech.</Heading4xl>
             <Subheading>

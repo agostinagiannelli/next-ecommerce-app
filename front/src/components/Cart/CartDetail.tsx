@@ -4,55 +4,59 @@ import { useAuth } from "@/context/AuthContext"
 import { useCart } from "@/context/CartContext"
 import { createOrder } from "@/services/apiServices"
 import { notifySuccess, notifyFailure } from "@/utils/notify"
+import { OrderProps } from "@/types/OrderProps"
 import CartProduct from "@/components/Cart/CartProduct"
 import ButtonDark from "@/components/Button/ButtonDark"
 import LinkTextArrow from "@/components/Link/LinkTextArrow"
-import LinkTextArrowSm from "@/components/Link/LinkTextArrowSm"
 
-const CartDetail: React.FC = () => {
-    const { token, user } = useAuth();
-    const { cartItems, clearCart } = useCart();
+const CartDetail = () => {
+    const { token, user } = useAuth()
+    const { cartItems, clearCart } = useCart()
 
-    const values = cartItems.map(product => product.id);
-    // console.log(user?.id, token, values)
+    const values = cartItems.map(product => product.id).filter(Boolean) as number[]
 
-    const handleCheckout = async (values: number[] | undefined) => {
+    const handleCheckout = async () => {
         try {
-            if (!token || !user || !values) return
-            const data = await createOrder(user.id, token, values);
+            if (!token || !user?.id || values.length === 0) return
+
+            const order: OrderProps = { userId: user.id, products: values }
+            // console.log(token, order)
+            const data = await createOrder(token, order)
+
             if (data) {
-                // notifySuccess('Sweet! Your new tech is on its way. Get ready to unbox the awesomeness.');
-                // clearCart();
+                // console.log(data)
+                // notifySuccess('Sweet! Your new tech is on its way. Get ready to unbox the awesomeness.')
+                // clearCart()
             } else {
-                notifyFailure('Yikes, something went wrong. Let’s get this sorted out!');
+                notifyFailure('Yikes, something went wrong. Let’s get this sorted out!')
             }
         } catch (error: any) {
-            throw new Error(error);
+            throw new Error(error)
         }
-    };
+    }
 
     const calculateTotal = () => {
         return cartItems.reduce((total, product) => {
-            return total + product.price;
-        }, 0);
-    };
+            return total + product.price
+        }, 0)
+    }
 
     if (!token || !user) {
         return (
             <div className="flex gap-2">
                 <span className="text-lg text-contrast">Oops! Looks like you're not logged in.</span>
-                <LinkTextArrow href="/auth/login" className="text-primary">Login</LinkTextArrow>
+                <LinkTextArrow href="/auth/login" className="text-lg text-primary">Login</LinkTextArrow>
             </div>
-        );
+        )
     }
 
     if (cartItems.length === 0) {
         return (
             <div className="flex gap-2">
                 <span className="text-lg text-contrast">Your cart is empty.</span>
-                <LinkTextArrow href="/store" className="text-primary">Go to Shop</LinkTextArrow>
+                <LinkTextArrow href="/store" className="text-lg text-primary">Go to Shop</LinkTextArrow>
             </div>
-        );
+        )
     }
 
     return (
@@ -69,10 +73,10 @@ const CartDetail: React.FC = () => {
                 </div>
             </div>
             <div className="p-4 text-center">
-                <ButtonDark className="py-2" onClick={() => handleCheckout(values.filter(Boolean) as number[])}>
+                <ButtonDark className="py-2" onClick={handleCheckout}>
                     Checkout
                 </ButtonDark>
-                <LinkTextArrowSm href="/store" className="py-2 text-primary">Continue Shopping</LinkTextArrowSm>
+                <LinkTextArrow href="/store" className="py-2 text-primary">Continue Shopping</LinkTextArrow>
             </div>
         </div>
     )

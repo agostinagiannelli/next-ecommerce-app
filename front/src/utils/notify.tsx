@@ -4,7 +4,7 @@ export function notifySuccess(message: string, onClose?: () => void) {
     toast(`✅ ${message}`,
         {
             className: 'font-sans text-black border border-black rounded-lg shadow-none',
-            position: "top-right",
+            position: "top-center",
             autoClose: 2000,
             hideProgressBar: true,
             closeOnClick: true,
@@ -20,7 +20,7 @@ export function notifyFailure(message: string, onClose?: () => void) {
     toast(`🚫 ${message}`,
         {
             className: 'font-sans text-black border border-black rounded-lg shadow-none',
-            position: "top-right",
+            position: "top-center",
             autoClose: 2000,
             hideProgressBar: true,
             closeOnClick: true,

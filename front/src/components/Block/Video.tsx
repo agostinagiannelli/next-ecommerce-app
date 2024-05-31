@@ -1,7 +1,7 @@
 import LinkTextArrow from "@/components/Link/LinkTextArrow"
 
 interface VideoProps {
-    title: string,
+    title: string
     src: string
     href: string
 }
@@ -14,7 +14,7 @@ const Video: React.FC<VideoProps> = ({ title, src, href }) => {
             </video>
             <div className="absolute inset-0 flex flex-col items-center justify-center">
                 <div className="mb-2 text-3xl font-bold text-white">{title}</div>
-                <LinkTextArrow href={href} className="text-white">
+                <LinkTextArrow href={href} className="text-lg text-white">
                     Shop Now
                 </LinkTextArrow>
             </div>

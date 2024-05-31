@@ -1,10 +1,10 @@
-import { CategoryProps } from '@/types/CategoryProps';
+import { ICategory } from "@/types"
 
-export const categories: CategoryProps[] = [
-    { name: 'Smartphones' },
-    { name: 'Laptops' },
-    { name: 'Tablets' },
-    { name: 'Watches' },
-    { name: 'Headphones' },
-    { name: 'Speakers' }
+export const categories: ICategory[] = [
+    { name: "Smartphones" },
+    { name: "Laptops" },
+    { name: "Tablets" },
+    { name: "Watches" },
+    { name: "Headphones" },
+    { name: "TV & Home" }
 ]

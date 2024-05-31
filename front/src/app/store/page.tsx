@@ -1,10 +1,21 @@
 import { getProducts } from "@/services/apiServices"
+import { notifyFailure } from "@/utils/notify"
 import Heading3xl from "@/components/Text/Heading3xl"
 import Cards from "@/components/Product/Cards"
 import Video from "@/components/Block/Video"
 
 const Shop = async () => {
-  const products = await getProducts();
+  let products
+
+  try {
+    products = await getProducts()
+
+    if (!products) {
+      notifyFailure("Yikes, something went wrong. Let’s get this sorted out!")
+    }
+  } catch (error: any) {
+    throw new Error(error)
+  }
 
   return (
     <>

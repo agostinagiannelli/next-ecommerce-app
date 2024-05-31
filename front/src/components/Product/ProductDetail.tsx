@@ -10,21 +10,22 @@ import ButtonDark from "@/components/Button/ButtonDark"
 import Rating from "@/components/Text/Rating"
 
 const ProductDetail: React.FC<{ product: ProductProps | undefined }> = ({ product }) => {
-    const router = useRouter();
-    const { token, user } = useAuth();
-    const { addToCart, cartItems } = useCart();
+    const router = useRouter()
+    const { token } = useAuth()
+    const { addToCart, cartItems } = useCart()
 
     const handleAddToCart = () => {
-        if (!product) return;
-        if (!token || !user) {
-            notifyFailure('Let’s fill that cart! Please login to get started.', () => router.push('/auth/login'));
+        if (!product) return
+        
+        if (!token) {
+            notifyFailure('Let’s fill that cart! Please login to get started.', () => router.push('/auth/login'))
         } else {
-            const existingProduct = cartItems.find(item => item.id === product.id);
-            if (existingProduct) {
-                notifyFailure(`${product.name} is already in your cart.`);
+            const isInCart = cartItems.find(item => item.id === product.id)
+            if (isInCart) {
+                notifyFailure(`${product.name} is already in your cart.`)
             } else {
-                addToCart(product);
-                notifySuccess(`Awesome choice! ${product.name} is now in your cart.`);
+                addToCart(product)
+                notifySuccess(`Awesome choice! ${product.name} is now in your cart.`)
             }
         }
     }

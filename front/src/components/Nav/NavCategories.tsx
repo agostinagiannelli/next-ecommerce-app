@@ -1,7 +1,7 @@
 import { categories } from "@/utils/categories"
 import LinkNavbar from "@/components/Link/LinkNavbar"
 
-const Navbar = () => {
+const Navbar: React.FC = () => {
     return (
         <nav className="pb-3">
             <div className="relative max-w-screen-xl mx-auto">
