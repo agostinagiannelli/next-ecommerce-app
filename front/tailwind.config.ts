@@ -9,13 +9,13 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--font-MabryPro)'],
+        sans: ["var(--font-MabryPro)"],
       },
       colors: {
-        primary: '#FF595E',
-        secondary: '#A43D83',
-        accent: '#F7CB45',
-        contrast: '#797979',
+        primary: "#FF595E",
+        secondary: "#A43D83",
+        accent: "#F7CB45",
+        contrast: "#797979",
       },
     },
   },

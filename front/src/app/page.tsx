@@ -6,9 +6,18 @@ import LinkTextArrow from "@/components/Link/LinkTextArrow"
 
 const Landing = () => {
     return (
-        <div className="flex flex-col items-center my-24 text-center h-52">
+        <div className="flex flex-col items-center my-12 text-center h-52">
+            <div className="w-32 mx-auto">
+                <div className="animated" />
+                <div className="animated" />
+                <div className="animated" />
+                <div className="animated" />
+                <div className="animated" />
+                <div className="animated" />
+                <div className="animated" />
+            </div>
             <Link href="/store">
-                <img src="/logo.svg" className="h-8 mb-24" alt="Codecraft Logo" />
+                <img src="/logo.svg" className="h-8 mt-20 mb-10" alt="Codecraft Logo" />
             </Link>
             <RoundedTextButton text="Already with us?" buttonLink="/auth/login" buttonText="Login" />
             <Heading4xl>Your one-stop shop for all things tech.</Heading4xl>
