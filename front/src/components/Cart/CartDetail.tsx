@@ -4,29 +4,25 @@ import { useAuth } from "@/context/AuthContext"
 import { useCart } from "@/context/CartContext"
 import { createOrder } from "@/services/apiServices"
 import { notifySuccess, notifyFailure } from "@/utils/notify"
-import { OrderProps } from "@/types/OrderProps"
 import CartProduct from "@/components/Cart/CartProduct"
 import ButtonDark from "@/components/Button/ButtonDark"
 import LinkTextArrow from "@/components/Link/LinkTextArrow"
 
 const CartDetail = () => {
-    const { token, user } = useAuth()
+    const { token } = useAuth()
     const { cartItems, clearCart } = useCart()
 
-    const values = cartItems.map(product => product.id).filter(Boolean) as number[]
+    const products = cartItems.map(product => product.id).filter(Boolean) as number[]
 
     const handleCheckout = async () => {
         try {
-            if (!token || !user?.id || values.length === 0) return
+            if (!token || products.length === 0) return
 
-            const order: OrderProps = { userId: user.id, products: values }
-            // console.log(token, order)
-            const data = await createOrder(token, order)
+            const data = await createOrder(token, products)
 
             if (data) {
-                // console.log(data)
-                // notifySuccess('Sweet! Your new tech is on its way. Get ready to unbox the awesomeness.')
-                // clearCart()
+                notifySuccess('Sweet! Your new tech is on its way. Get ready to unbox the awesomeness.')
+                clearCart()
             } else {
                 notifyFailure('Yikes, something went wrong. Let’s get this sorted out!')
             }
@@ -41,7 +37,7 @@ const CartDetail = () => {
         }, 0)
     }
 
-    if (!token || !user) {
+    if (!token) {
         return (
             <div className="flex gap-2">
                 <span className="text-lg text-contrast">Oops! Looks like you're not logged in.</span>
@@ -60,19 +56,19 @@ const CartDetail = () => {
     }
 
     return (
-        <div className="w-full max-w-md border border-black rounded-lg">
-            <ul className="p-4">
+        <div className="w-full max-w-3xl border border-black rounded-lg">
+            <ul className="p-6 space-y-4">
                 {cartItems.map(product => (
                     <CartProduct key={product.id} product={product} />
                 ))}
             </ul>
-            <div className="px-12 py-4">
+            <div className="px-16 py-6">
                 <div className="flex justify-between">
-                    <p className="text-xl font-bold">Total</p>
-                    <p className="text-3xl font-bold">${calculateTotal()}</p>
+                    <p className="text-2xl font-bold">Total</p>
+                    <p className="text-2xl font-bold">${calculateTotal()}</p>
                 </div>
             </div>
-            <div className="p-4 text-center">
+            <div className="p-6 text-center">
                 <ButtonDark className="py-2" onClick={handleCheckout}>
                     Checkout
                 </ButtonDark>

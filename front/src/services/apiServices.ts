@@ -73,15 +73,14 @@ export async function registerUser(user: UserProps) {
     }
 }
 
-export async function getOrders(token: string, userId: number) {
+export async function getOrders(token: string) {
     try {
         const response = await fetch(`${API_URL}/users/orders`, {
             method: 'GET',
+            cache: 'no-cache',
             headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`,
-            },
-            body: JSON.stringify(userId)
+                Authorization: token
+            }
         })
         const data = await response.json()
         return data
@@ -90,15 +89,15 @@ export async function getOrders(token: string, userId: number) {
     }
 }
 
-export async function createOrder(token: string, order: OrderProps) {
+export async function createOrder(token: string, products: number[]) {
     try {
         const response = await fetch(`${API_URL}/orders`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
+                Authorization: token
             },
-            body: JSON.stringify(order)
+            body: JSON.stringify({ products })
         })
         const data = await response.json()
         return data

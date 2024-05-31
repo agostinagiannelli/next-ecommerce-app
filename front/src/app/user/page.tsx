@@ -9,15 +9,15 @@ import Heading4xl from "@/components/Text/Heading4xl"
 import UserDetail from "@/components/User/UserDetail"
 
 const User = () => {
-    const { token, user } = useAuth()
+    const { token } = useAuth()
     const [orders, setOrders] = useState<IOrder[]>()
 
     useEffect(() => {
         const fetchOrders = async () => {
             try {
-                if (!token || !user?.id) return
+                if (!token) return
                 
-                const data = await getOrders(token, user.id)
+                const data = await getOrders(token)
 
                 if (data) {
                     setOrders(data)
@@ -30,7 +30,7 @@ const User = () => {
         }
 
         fetchOrders()
-    }, [])
+    }, [token])
 
     return (
         <>

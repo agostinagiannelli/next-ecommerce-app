@@ -21,12 +21,6 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }, [])
 
     const addToCart = (product: ProductProps) => {
-        const existingProductIndex = cartItems.findIndex(item => item.id === product.id)
-        if (existingProductIndex !== -1) {
-            alert('This product is already in the cart.') // Alert if product already exists in cart
-            return
-        }
-        
         const updatedCartItems = [...cartItems, { ...product, quantity: 1 }]
         setCartItems(updatedCartItems)
         localStorage.setItem('cart', JSON.stringify(updatedCartItems))

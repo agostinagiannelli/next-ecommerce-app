@@ -25,8 +25,8 @@ const UserDetail: React.FC<{ orders: IOrder[] | undefined }> = ({ orders }) => {
     }
 
     return (
-        <div className={orders && orders.length > 0 ? "grid grid-cols-1 sm:grid-cols-2 gap-4" : ""}>
-            <div className="w-full max-w-sm border border-black rounded-lg">
+        <div className={orders && orders.length > 0 ? "grid grid-cols-1 gap-4 max-w-3xl" : ""}>
+            <div className="w-full border border-black rounded-lg">
                 <ul className="p-4">
                     <li className="grid grid-cols-3 gap-4 p-3">
                         <span className="text-contrast">Name</span>
@@ -51,13 +51,16 @@ const UserDetail: React.FC<{ orders: IOrder[] | undefined }> = ({ orders }) => {
                 </div>
             </div>
             {orders && orders?.length > 0 && (
-                <div className="w-full max-w-sm border border-black rounded-lg">
+                <div className="w-full border border-black rounded-lg">
                     <ul className="p-4">
                         {orders.map((order) => (
-                            <li key={order.id} className="grid grid-cols-3 gap-4 p-3">
+                            <li key={order.id} className="grid grid-cols-4 gap-4 p-3">
                                 <span className="text-contrast">Order #{order.id}</span>
-                                <span>{order.products.join(", ")}</span>
-                                <span className="font-bold">Status: ${order.status}</span>
+                                <span>{order.products.map(product => product.name).join(", ")}</span>
+                                <span className="font-bold">Date: {new Date(order.date).toLocaleDateString()}</span>
+                                <span className="font-bold">
+                                    Status: {order.status === "pending" ? "Pending" : order.status === "approved" ? "Approved" : "Rejected"}
+                                </span>
                             </li>
                         ))}
                     </ul>
