@@ -25,48 +25,61 @@ const UserDetail: React.FC<{ orders: IOrder[] | undefined }> = ({ orders }) => {
     }
 
     return (
-        <div className={orders && orders.length > 0 ? "grid grid-cols-1 gap-4 max-w-3xl" : ""}>
-            <div className="w-full border border-black rounded-lg">
-                <ul className="p-4">
-                    <li className="grid grid-cols-3 gap-4 p-3">
-                        <span className="text-contrast">Name</span>
-                        <span className="mt-1 sm:mt-0 sm:col-span-2">{user?.name}</span>
-                    </li>
-                    <li className="grid grid-cols-3 gap-4 p-3">
-                        <span className="text-contrast">Email</span>
-                        <span className="mt-1 sm:mt-0 sm:col-span-2">{user?.email}</span>
-                    </li>
-                    <li className="grid grid-cols-3 gap-4 p-3">
-                        <span className="text-contrast">Address</span>
-                        <span className="mt-1 sm:mt-0 sm:col-span-2">{user?.address}</span>
-                    </li>
-                    <li className="grid grid-cols-3 gap-4 p-3">
-                        <span className="text-contrast">Phone</span>
-                        <span className="mt-1 sm:mt-0 sm:col-span-2">{user?.phone}</span>
-                    </li>
-                </ul>
-                <div className="p-4 text-center">
-                    <ButtonLight className="py-2" onClick={handleLogout}>Logout</ButtonLight>
-                    <LinkTextArrow href="/store" className="py-2 text-primary">Go to Shop</LinkTextArrow>
-                </div>
-            </div>
-            {orders && orders?.length > 0 && (
-                <div className="w-full border border-black rounded-lg">
-                    <ul className="p-4">
-                        {orders.map((order) => (
-                            <li key={order.id} className="grid grid-cols-4 gap-4 p-3">
-                                <span className="text-contrast">Order #{order.id}</span>
-                                <span>{order.products.map(product => product.name).join(", ")}</span>
-                                <span className="font-bold">Date: {new Date(order.date).toLocaleDateString()}</span>
-                                <span className="font-bold">
-                                    Status: {order.status === "pending" ? "Pending" : order.status === "approved" ? "Approved" : "Rejected"}
-                                </span>
-                            </li>
-                        ))}
+        <>
+            <div className={orders && orders.length > 0 ? "grid md:grid-cols-4 gap-4" : ""}>
+                <div className="col-span-1 w-full">
+                    <ul>
+                        <li className="p-4">
+                            <span className="block text-contrast">Name</span>
+                            <span className="block mt-1">{user?.name}</span>
+                        </li>
+                        <li className="p-4">
+                            <span className="block text-contrast">Email</span>
+                            <span className="block mt-1">{user?.email}</span>
+                        </li>
+                        <li className="p-4">
+                            <span className="block text-contrast">Address</span>
+                            <span className="block mt-1">{user?.address}</span>
+                        </li>
+                        <li className="p-4">
+                            <span className="block text-contrast">Phone</span>
+                            <span className="block mt-1">{user?.phone}</span>
+                        </li>
                     </ul>
                 </div>
-            )}
-        </div>
+                {orders && orders.length > 0 && (
+                    <div className="col-span-3 w-full max-w-2xl">
+                        <ul className="p-4 space-y-4">
+                            {orders.map((order) => (
+                                <li key={order.id} className="p-4 border border-black rounded-lg lg:grid lg:grid-cols-3 gap-4">
+                                    <div>
+                                        <span className="block">
+                                            <span className="text-contrast">Order: </span>
+                                            {order.id}
+                                        </span>
+                                        <span className="block">
+                                            <span className="text-contrast">Date: </span>
+                                            {new Date(order.date).toLocaleDateString()}
+                                        </span>
+                                        <span className="block">
+                                            <span className="text-contrast">Status: </span>
+                                            {order.status === "pending" ? "🤞 Pending" : order.status === "approved" ? "👍 Approved" : "👎 Rejected"}
+                                        </span>
+                                    </div>
+                                    <div className="lg:col-span-2">
+                                        <span className="block lg:inline lg:col-span-3">{order.products.map(product => product.name).join(", ")}</span>
+                                    </div>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                )}
+            </div>
+            <div className="p-4 text-center">
+                <ButtonLight className="py-2" onClick={handleLogout}>Logout</ButtonLight>
+                <LinkTextArrow href="/store" className="py-2 text-primary">Go to Shop</LinkTextArrow>
+            </div>
+        </>
     )
 }
 

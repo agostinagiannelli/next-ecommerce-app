@@ -7,7 +7,7 @@ import LinkTextArrow from "@/components/Link/LinkTextArrow"
 const Landing = () => {
     return (
         <div className="flex flex-col items-center my-12 text-center h-52">
-            <div className="w-32 mx-auto">
+            <div className="w-20 mx-auto">
                 <div className="animated" />
                 <div className="animated" />
                 <div className="animated" />
