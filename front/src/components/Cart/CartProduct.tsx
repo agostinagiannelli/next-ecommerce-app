@@ -12,17 +12,17 @@ const CartProduct: React.FC<{ product: ProductProps }> = ({ product }) => {
     }
 
     return (
-        <li className="flex items-center gap-8">
+        <li className="flex items-center gap-2 lg:gap-4">
             <img
                 src={product.image}
                 alt={product.name}
-                className="object-contain w-16 h-16 lg:w-24 lg:h-24"
+                className="object-contain w-14 h-14 lg:w-28 lg:h-28"
             />
             <div>
                 <h3>{product.name}</h3>
             </div>
             <div className="flex items-center justify-end flex-1 gap-2">
-                <p className="text-xl font-bold">${product.price}</p>
+                <p className="lg:text-xl font-bold">${product.price}</p>
                 <button onClick={handleRemove} className="transition text-contrast hover:text-primary">
                     <span className="sr-only">Remove product</span>
                     <svg className="w-6 h-6 ml-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

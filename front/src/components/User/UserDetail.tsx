@@ -50,27 +50,29 @@ const UserDetail: React.FC<{ orders: IOrder[] | undefined }> = ({ orders }) => {
                 {orders && orders.length > 0 && (
                     <div className="col-span-3 w-full max-w-2xl">
                         <ul className="p-4 space-y-4">
-                            {orders.map((order) => (
-                                <li key={order.id} className="p-4 border border-black rounded-lg lg:grid lg:grid-cols-3 gap-4">
-                                    <div>
-                                        <span className="block">
-                                            <span className="text-contrast">Order: </span>
-                                            {order.id}
-                                        </span>
-                                        <span className="block">
-                                            <span className="text-contrast">Date: </span>
-                                            {new Date(order.date).toLocaleDateString()}
-                                        </span>
-                                        <span className="block">
-                                            <span className="text-contrast">Status: </span>
-                                            {order.status === "pending" ? "🤞 Pending" : order.status === "approved" ? "👍 Approved" : "👎 Rejected"}
-                                        </span>
-                                    </div>
-                                    <div className="lg:col-span-2">
-                                        <span className="block lg:inline lg:col-span-3">{order.products.map(product => product.name).join(", ")}</span>
-                                    </div>
-                                </li>
-                            ))}
+                            {orders
+                                .sort((a, b) => b.id - a.id)
+                                .map((order) => (
+                                    <li key={order.id} className="p-4 border border-black rounded-lg lg:grid lg:grid-cols-3 gap-4">
+                                        <div>
+                                            <span className="block">
+                                                <span className="text-contrast">Order: </span>
+                                                {order.id}
+                                            </span>
+                                            <span className="block">
+                                                <span className="text-contrast">Date: </span>
+                                                {new Date(order.date).toLocaleDateString()}
+                                            </span>
+                                            <span className="block">
+                                                <span className="text-contrast">Status: </span>
+                                                {order.status === "pending" ? "🤞 Pending" : order.status === "approved" ? "👍 Approved" : "👎 Rejected"}
+                                            </span>
+                                        </div>
+                                        <div className="lg:col-span-2">
+                                            <span className="block lg:inline lg:col-span-3">{order.products.map(product => product.name).join(", ")}</span>
+                                        </div>
+                                    </li>
+                                ))}
                         </ul>
                     </div>
                 )}

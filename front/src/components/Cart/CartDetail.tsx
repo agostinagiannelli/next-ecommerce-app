@@ -1,5 +1,6 @@
 "use client"
 
+import { useRouter } from "next/navigation"
 import { useAuth } from "@/context/AuthContext"
 import { useCart } from "@/context/CartContext"
 import { createOrder } from "@/services/apiServices"
@@ -9,6 +10,7 @@ import ButtonDark from "@/components/Button/ButtonDark"
 import LinkTextArrow from "@/components/Link/LinkTextArrow"
 
 const CartDetail = () => {
+    const router = useRouter()
     const { token } = useAuth()
     const { cartItems, clearCart } = useCart()
 
@@ -23,6 +25,7 @@ const CartDetail = () => {
             if (data) {
                 notifySuccess('Sweet! Your new tech is on its way. Get ready to unbox the awesomeness.')
                 clearCart()
+                router.push('/user')
             } else {
                 notifyFailure('Yikes, something went wrong. Let’s get this sorted out!')
             }
@@ -56,19 +59,19 @@ const CartDetail = () => {
     }
 
     return (
-        <div className="w-full max-w-3xl border border-black rounded-lg">
-            <ul className="p-6 space-y-4">
+        <div className="w-full max-w-2xl border border-black rounded-lg">
+            <ul className="p-4 space-y-4">
                 {cartItems.map(product => (
                     <CartProduct key={product.id} product={product} />
                 ))}
             </ul>
-            <div className="px-16 py-6">
+            <div className="px-12 lg:px-14 py-4">
                 <div className="flex justify-between">
-                    <p className="text-2xl font-bold">Total</p>
-                    <p className="text-2xl font-bold">${calculateTotal()}</p>
+                    <p className="text-xl lg:text-2xl font-bold">Total</p>
+                    <p className="text-xl lg:text-2xl font-bold">${calculateTotal()}</p>
                 </div>
             </div>
-            <div className="p-6 text-center">
+            <div className="p-4 text-center">
                 <ButtonDark className="py-2" onClick={handleCheckout}>
                     Checkout
                 </ButtonDark>
