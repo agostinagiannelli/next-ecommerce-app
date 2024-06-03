@@ -20,7 +20,7 @@ const Shop = async () => {
   return (
     <>
       <Video
-        src="https://www.apple.com/105/media/us/iphone/family/2024/1efec3e0-8619-4684-a57e-6e2310394f08/anim/welcome/xlarge.mp4"
+        src="https://res.cloudinary.com/dlea3w6x8/video/upload/v1717404894/henry-m4/iPhone.mp4"
         title="Designed to amaze you."
         href="/store/product/1"
       />

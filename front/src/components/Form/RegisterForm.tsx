@@ -13,9 +13,10 @@ import LinkTextArrow from "@/components/Link/LinkTextArrow"
 const RegisterForm = () => {
   const router = useRouter()
 
-  const handleSubmit = async (values: UserProps) => {
+  const handleSubmit = async (user: UserProps) => {
     try {
-      const data = await registerUser(values)
+      const data = await registerUser(user)
+
       if (data) {
         notifySuccess('Welcome aboard! Login to start shopping.', () => router.push('/auth/login'))
       } else {

@@ -1,7 +1,6 @@
 import { ProductProps } from '@/types/ProductProps'
 import { CredentialProps } from '@/types/CredentialProps'
 import { UserProps } from '@/types/UserProps'
-import { OrderProps } from '@/types/OrderProps'
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'
 
@@ -12,6 +11,12 @@ export async function getProducts() {
             // cache: 'no-cache'
             next: { revalidate: 3600 }
         })
+
+        if (!response.ok) {
+            const error = await response.text()
+            throw new Error(`Error: ${response.status} ${response.statusText} - ${error}`)
+        }
+
         const products: ProductProps[] = await response.json()
         return products
     } catch (error: any) {
@@ -23,7 +28,9 @@ export async function getProductById(id: string) {
     try {
         const products = await getProducts()
         const product = products?.find((product) => product.id?.toString() === id)
+
         if (!product) throw new Error('Product not found')
+            
         return product
     } catch (error: any) {
         console.error(error.message)
@@ -34,7 +41,9 @@ export async function getProductsByCategory(id: string) {
     try {
         const products = await getProducts()
         const productsInCategory = products?.filter(product => product.categoryId.toString() === id)
+
         if (productsInCategory?.length === 0) throw new Error('No products found for the given category')
+
         return productsInCategory
     } catch (error: any) {
         console.error(error.message)
@@ -50,8 +59,13 @@ export async function loginUser(credentials: CredentialProps) {
             },
             body: JSON.stringify(credentials)
         })
-        const data = await response.json()
-        return data
+
+        if (!response.ok) {
+            const error = await response.text()
+            throw new Error(`Error: ${response.status} ${response.statusText} - ${error}`)
+        }
+
+        return await response.json()
     } catch (error: any) {
         console.error(error.message)
     }
@@ -66,8 +80,13 @@ export async function registerUser(user: UserProps) {
             },
             body: JSON.stringify(user)
         })
-        const data = await response.json()
-        return data
+
+        if (!response.ok) {
+            const error = await response.text()
+            throw new Error(`Error: ${response.status} ${response.statusText} - ${error}`)
+        }
+
+        return await response.json()
     } catch (error: any) {
         console.error(error.message)
     }
@@ -82,8 +101,13 @@ export async function getOrders(token: string) {
                 Authorization: token
             }
         })
-        const data = await response.json()
-        return data
+
+        if (!response.ok) {
+            const error = await response.text()
+            throw new Error(`Error: ${response.status} ${response.statusText} - ${error}`)
+        }
+
+        return await response.json()
     } catch (error: any) {
         console.error(error.message)
     }
@@ -99,8 +123,13 @@ export async function createOrder(token: string, products: number[]) {
             },
             body: JSON.stringify({ products })
         })
-        const data = await response.json()
-        return data
+
+        if (!response.ok) {
+            const error = await response.text()
+            throw new Error(`Error: ${response.status} ${response.statusText} - ${error}`)
+        }
+
+        return await response.json()
     } catch (error: any) {
         console.error(error.message)
     }

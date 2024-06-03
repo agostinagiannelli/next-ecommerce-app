@@ -21,7 +21,7 @@ const productsToPreLoad: IProduct[] = [
     "rating": 4.5,
     "price": 699,
     "stock": 10,
-    "image": "https://www.mobi-hub.co.uk/wp-content/uploads/1-front-back-black-titanium.png",
+    "image": "https://res.cloudinary.com/dlea3w6x8/image/upload/v1717403926/henry-m4/iPhone15.png",
     "categoryId": 1,
   },
   {
@@ -31,7 +31,7 @@ const productsToPreLoad: IProduct[] = [
     "rating": 4.8,
     "price": 999,
     "stock": 10,
-    "image": "https://images.macrumors.com/t/Au-OUIb73hHvx2w8CirAir5bNbM=/1600x/article-new/2013/09/macbook-air-m2-roundup-header.png",
+    "image": "https://res.cloudinary.com/dlea3w6x8/image/upload/v1717403926/henry-m4/MacBookAir.png",
     "categoryId": 2,
   },
   {
@@ -41,7 +41,7 @@ const productsToPreLoad: IProduct[] = [
     "rating": 4.7,
     "price": 799,
     "stock": 10,
-    "image": "https://techhub.osu.edu/sites/default/files/products/ipad_pro_12_9-in_wi-fi_space_gray_2-up_screen_usen-3.png",
+    "image": "https://res.cloudinary.com/dlea3w6x8/image/upload/v1717403925/henry-m4/iPadPro.png",
     "categoryId": 3,
   },
   {
@@ -51,7 +51,7 @@ const productsToPreLoad: IProduct[] = [
     "rating": 4.9,
     "price": 399,
     "stock": 10,
-    "image": "https://www.janado.de/cdn/shop/files/apple-watch-series-9-gps-45mm-aluminium-mitternacht-sportarmband-mitternacht-m-l-pn.png?v=1714180672",
+    "image": "https://res.cloudinary.com/dlea3w6x8/image/upload/v1717403925/henry-m4/AppleWatchSeries9.png",
     "categoryId": 4,
   },
   {
@@ -61,7 +61,7 @@ const productsToPreLoad: IProduct[] = [
     "rating": 4.6,
     "price": 249,
     "stock": 10,
-    "image": "https://cdsassets.apple.com/live/SZLF0YNV/images/sp/111851_sp880-airpods-Pro-2nd-gen.png",
+    "image": "https://res.cloudinary.com/dlea3w6x8/image/upload/v1717403926/henry-m4/AirPodsPro2ndGeneration.png",
     "categoryId": 5,
   },
   {
@@ -71,7 +71,7 @@ const productsToPreLoad: IProduct[] = [
     "rating": 4.4,
     "price": 99,
     "stock": 10,
-    "image": "https://www.dimprice.co.uk/image/cache/png/apple-homepod-mini/Black/apple-homepod-mini-01-1200x1200.png",
+    "image": "https://res.cloudinary.com/dlea3w6x8/image/upload/v1717403927/henry-m4/HomePodMini.png",
     "categoryId": 6,
   },
   {
@@ -81,7 +81,7 @@ const productsToPreLoad: IProduct[] = [
     "rating": 4.6,
     "price": 799,
     "stock": 15,
-    "image": "https://grademobile.co.uk/cdn/shop/files/12-green.png",
+    "image": "https://res.cloudinary.com/dlea3w6x8/image/upload/v1717403926/henry-m4/iPhone12.png",
     "categoryId": 1,
   },
   {
@@ -91,7 +91,7 @@ const productsToPreLoad: IProduct[] = [
     "rating": 4.9,
     "price": 1299,
     "stock": 8,
-    "image": "https://photos5.appleinsider.com/price_guide/macbook-pro-16-inch-2023-pp-header.png",
+    "image": "https://res.cloudinary.com/dlea3w6x8/image/upload/v1717403926/henry-m4/MacBookPro.png",
     "categoryId": 2,
   },
   {
@@ -101,7 +101,7 @@ const productsToPreLoad: IProduct[] = [
     "rating": 4.7,
     "price": 599,
     "stock": 12,
-    "image": "https://istorepy.com/cdn/shop/products/ipad-mini-select-wifi-pink-202109.png",
+    "image": "https://res.cloudinary.com/dlea3w6x8/image/upload/v1717403924/henry-m4/iPadAir.png",
     "categoryId": 3,
   },
   {
@@ -111,7 +111,7 @@ const productsToPreLoad: IProduct[] = [
     "rating": 4.5,
     "price": 279,
     "stock": 20,
-    "image": "https://res-5.cloudinary.com/grover/image/upload/v1667321421/q1k0u9mtv1uylktnwxpo.png",
+    "image": "https://res.cloudinary.com/dlea3w6x8/image/upload/v1717403927/henry-m4/AppleWatchSE.png",
     "categoryId": 4,
   },
   {
@@ -121,7 +121,7 @@ const productsToPreLoad: IProduct[] = [
     "rating": 4.7,
     "price": 549,
     "stock": 5,
-    "image": "https://lmt-web.mstatic.lv/eshop/21107/AirPods_Max_Space_Gray_PDP_Image_Position-1__US-EN.png",
+    "image": "https://res.cloudinary.com/dlea3w6x8/image/upload/v1717403924/henry-m4/AirPodsMax.png",
     "categoryId": 5,
   },
   {
@@ -131,7 +131,7 @@ const productsToPreLoad: IProduct[] = [
     "rating": 4.8,
     "price": 179,
     "stock": 10,
-    "image": "https://cdsassets.apple.com/live/SZLF0YNV/images/sp/111922_sp845-apple-tv-4k-2gen.png",
+    "image": "https://res.cloudinary.com/dlea3w6x8/image/upload/v1717403924/henry-m4/AppleTV4K.png",
     "categoryId": 6,
   },
   {
@@ -141,7 +141,7 @@ const productsToPreLoad: IProduct[] = [
     "rating": 4.4,
     "price": 399,
     "stock": 18,
-    "image": "https://reboxed.co/cdn/shop/files/5fc09ea83557a64125b07a176dace671_a3677a3d-e5b5-4f8b-9eb8-e5b82a90c1f9_1200x.png",
+    "image": "https://res.cloudinary.com/dlea3w6x8/image/upload/v1717403926/henry-m4/iPhoneSE.png",
     "categoryId": 1,
   },
   {
@@ -151,7 +151,7 @@ const productsToPreLoad: IProduct[] = [
     "rating": 4.6,
     "price": 699,
     "stock": 7,
-    "image": "https://photos5.appleinsider.com/price_guide/2018-mac-mini.png",
+    "image": "https://res.cloudinary.com/dlea3w6x8/image/upload/v1717403927/henry-m4/MacMini.png",
     "categoryId": 2,
   },
   {
@@ -161,7 +161,7 @@ const productsToPreLoad: IProduct[] = [
     "rating": 4.7,
     "price": 499,
     "stock": 14,
-    "image": "https://www.stopandclick.es/wp-content/uploads/2022/03/iPad-Air-Purpura-M1.png",
+    "image": "https://res.cloudinary.com/dlea3w6x8/image/upload/v1717403925/henry-m4/iPadMini.png",
     "categoryId": 3,
   },
   {
@@ -171,7 +171,7 @@ const productsToPreLoad: IProduct[] = [
     "rating": 4.9,
     "price": 429,
     "stock": 11,
-    "image": "https://res-3.cloudinary.com/grover/image/upload/v1633703158/py9fvmfn1jwbo1yokp1k.png",
+    "image": "https://res.cloudinary.com/dlea3w6x8/image/upload/v1717403925/henry-m4/AppleWatchSeries7.png",
     "categoryId": 4,
   },
   {
@@ -181,7 +181,7 @@ const productsToPreLoad: IProduct[] = [
     "rating": 4.5,
     "price": 179,
     "stock": 13,
-    "image": "https://cdn.revendo.com/media/ed/9f/0b/1661410089/apple-airpods-weiss-guenstig-gebraucht-kaufen-6.png.png",
+    "image": "https://res.cloudinary.com/dlea3w6x8/image/upload/v1717403924/henry-m4/AirPods3rdGeneration.png",
     "categoryId": 5,
   },
   {
@@ -191,7 +191,7 @@ const productsToPreLoad: IProduct[] = [
     "rating": 4.7,
     "price": 299,
     "stock": 6,
-    "image": "https://www.iworldconnect.com/cdn/shop/files/HomePod_2nd-Gen_White_Hero_Alt_Screen__USEN_2081617d-c0b4-4b96-9bb5-262a4f570263_1024x1024.png",
+    "image": "https://res.cloudinary.com/dlea3w6x8/image/upload/v1717403925/henry-m4/HomePod.png",
     "categoryId": 6,
   }
 ];
