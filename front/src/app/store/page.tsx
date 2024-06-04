@@ -1,11 +1,12 @@
 import { getProducts } from "@/services/apiServices"
 import { notifyFailure } from "@/utils/notify"
+import { ProductProps } from "@/types/ProductProps"
 import Heading3xl from "@/components/Text/Heading3xl"
 import Cards from "@/components/Product/Cards"
 import Video from "@/components/Block/Video"
 
 const Shop = async () => {
-  let products
+  let products: ProductProps[] | undefined
 
   try {
     products = await getProducts()
