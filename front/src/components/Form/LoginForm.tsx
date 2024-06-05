@@ -9,6 +9,7 @@ import { CredentialProps } from "@/types/CredentialProps"
 import Input from "@/components/Form/Input"
 import ButtonLight from "@/components/Button/ButtonLight"
 import LinkTextArrow from "@/components/Link/LinkTextArrow"
+// import { toast } from "react-toastify"
 
 const LoginForm = () => {
   const { token, setAuthData } = useAuth()
@@ -20,6 +21,18 @@ const LoginForm = () => {
       if (data) {
         setAuthData(data.token, data.user)
         notifySuccess('You’re in. Ready to start shopping?')
+        // toast('Test toast',
+        // {
+        //     className: 'font-sans text-black border border-black rounded-lg shadow-none',
+        //     position: "top-center",
+        //     autoClose: 2000,
+        //     hideProgressBar: true,
+        //     closeOnClick: true,
+        //     pauseOnHover: true,
+        //     draggable: true,
+        //     progress: undefined,
+        //     theme: "light"
+        // })
       } else {
         notifyFailure('Uh-oh, wrong email or password. Try again.')
       }
@@ -31,7 +44,7 @@ const LoginForm = () => {
   if (token) {
     return (
       <div className="flex gap-2">
-        <span className="text-lg text-contrast">Oops! Looks like you're already logged in.</span>
+        <span className="text-lg text-contrast">Oops! Looks like you&apos;re already logged in.</span>
         <LinkTextArrow href="/store" className="text-lg text-primary">Go to Shop</LinkTextArrow>
       </div>
     )

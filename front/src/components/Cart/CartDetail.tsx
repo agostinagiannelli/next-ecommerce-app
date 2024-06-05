@@ -43,7 +43,7 @@ const CartDetail = () => {
     if (!token) {
         return (
             <div className="flex gap-2">
-                <span className="text-lg text-contrast">Oops! Looks like you're not logged in.</span>
+                <span className="text-lg text-contrast">Oops! Looks like you&apos;re not logged in.</span>
                 <LinkTextArrow href="/auth/login" className="text-lg text-primary">Login</LinkTextArrow>
             </div>
         )

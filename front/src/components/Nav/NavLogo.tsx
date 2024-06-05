@@ -3,6 +3,7 @@ import { useAuth } from "@/context/AuthContext"
 import { useCart } from "@/context/CartContext"
 import LinkButtonDark from "@/components/Link/LinkButtonDark"
 import LinkButtonLight from "@/components/Link/LinkButtonLight"
+import Image from "next/image"
 
 const NavLogo: React.FC = () => {
     const { token } = useAuth()
@@ -12,7 +13,12 @@ const NavLogo: React.FC = () => {
         <nav className="py-3">
             <div className="flex flex-wrap items-center justify-between max-w-screen-xl mx-auto">
                 <Link href="/store">
-                    <img src="/logo.svg" className="h-5" alt="Codecraft Logo" />
+                    <Image
+                        src="/logo.svg"
+                        alt="Codecraft Logo"
+                        width={160}
+                        height={40}
+                    />
                 </Link>
                 {token ?
                     <div className="flex items-center space-x-2">

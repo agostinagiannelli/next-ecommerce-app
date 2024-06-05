@@ -1,3 +1,4 @@
+import Image from "next/image"
 import { useCart } from "@/context/CartContext"
 import { notifySuccess } from "@/utils/notify"
 import { ProductProps } from "@/types/ProductProps"
@@ -13,11 +14,13 @@ const CartProduct: React.FC<{ product: ProductProps }> = ({ product }) => {
 
     return (
         <li className="flex items-center gap-2 lg:gap-4">
-            <img
+            <Image
                 src={product.image}
                 alt={product.name}
-                className="object-contain w-14 h-14 lg:w-28 lg:h-28"
-            />
+                width={66}
+                height={66}
+                className="object-contain lg:w-28 lg:h-28"
+                />
             <div>
                 <h3>{product.name}</h3>
             </div>

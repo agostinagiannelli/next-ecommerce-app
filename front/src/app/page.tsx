@@ -1,3 +1,4 @@
+import Image from "next/image"
 import Link from "next/link"
 import Heading4xl from "@/components/Text/Heading4xl"
 import Subheading from "@/components/Text/Subheading"
@@ -8,7 +9,13 @@ const Landing = () => {
     return (
         <div className="flex flex-col items-center my-12 text-center h-52">
             <Link href="/store">
-                <img src="/logo.svg" className="h-8 mt-20 mb-14" alt="Codecraft Logo" />
+                <Image
+                    src="/logo.svg"
+                    alt="Codecraft Logo"
+                    width={256}
+                    height={64}
+                    className="mt-20 mb-14"
+                />
             </Link>
             <RoundedTextButton text="Already with us?" buttonLink="/auth/login" buttonText="Login" />
             <Heading4xl>Your one-stop shop for all things tech.</Heading4xl>

@@ -23,7 +23,7 @@ const Product = ({ params }: { params: { productId: string } }) => {
         }
 
         fetchProduct()
-    }, [])
+    }, [params.productId])
 
     return (
         <>
