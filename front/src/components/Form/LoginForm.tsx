@@ -17,27 +17,32 @@ const LoginForm = () => {
   const handleSubmit = async (user: CredentialProps) => {
     try {
       const data = await loginUser(user)
-      
-      if (data) {
-        setAuthData(data.token, data.user)
-        notifySuccess('You’re in. Ready to start shopping?')
-        // toast('Test toast',
-        // {
-        //     className: 'font-sans text-black border border-black rounded-lg shadow-none',
-        //     position: "top-center",
-        //     autoClose: 2000,
-        //     hideProgressBar: true,
-        //     closeOnClick: true,
-        //     pauseOnHover: true,
-        //     draggable: true,
-        //     progress: undefined,
-        //     theme: "light"
-        // })
-      } else {
-        notifyFailure('Uh-oh, wrong email or password. Try again.')
-      }
+
+      setAuthData(data.token, data.user)
+      notifySuccess("You’re in. Ready to start shopping?")
+      // toast("Test toast",
+      // {
+      //     className: "font-sans text-black border border-black rounded-lg shadow-none",
+      //     position: "top-center",
+      //     autoClose: 2000,
+      //     hideProgressBar: true,
+      //     closeOnClick: true,
+      //     pauseOnHover: true,
+      //     draggable: true,
+      //     progress: undefined,
+      //     theme: "light"
+      // })
     } catch (error: any) {
-      throw new Error(error)
+      if (error.message.includes("Invalid password")) {
+        notifyFailure("Uh-oh, your password isn't quite right. Try again.")
+        console.error(error)
+      } else if (error.message.includes("User does not exist")) {
+        notifyFailure("Uh-oh, user not found. Check your details.")
+        console.error(error)
+      } else {
+        notifyFailure("Uh-oh, something went wrong. Try again.")
+        console.error(error)
+      }
     }
   }
 
@@ -57,7 +62,7 @@ const LoginForm = () => {
         <LinkTextArrow href="/auth/register" className="text-lg text-primary">Register</LinkTextArrow>
       </div>
       <Formik
-        initialValues={{ email: '', password: '' }}
+        initialValues={{ email: "", password: "" }}
         validate={validateLogin}
         onSubmit={handleSubmit}
       >

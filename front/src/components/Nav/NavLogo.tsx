@@ -18,6 +18,7 @@ const NavLogo: React.FC = () => {
                         alt="Codecraft Logo"
                         width={160}
                         height={40}
+                        className="w-44 h-auto"
                     />
                 </Link>
                 {token ?

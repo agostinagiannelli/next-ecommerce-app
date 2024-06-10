@@ -6,6 +6,8 @@ import { categories } from "@/utils/categories"
 import { ProductProps } from "@/types/ProductProps"
 import Cards from "@/components/Product/Cards"
 import Heading3xl from "@/components/Text/Heading3xl"
+import Heading4xl from "@/components/Text/Heading4xl"
+import Subheading from "@/components/Text/Subheading"
 import LinkTextArrow from "@/components/Link/LinkTextArrow"
 
 const Category = ({ params }: { params: { categoryId: string } }) => {
@@ -25,12 +27,20 @@ const Category = ({ params }: { params: { categoryId: string } }) => {
                 setProducts(products)
             }
             catch (error: any) {
-                throw new Error(error)
+                console.error(error)
             }
         }
 
         fetchProducts()
     }, [params.categoryId])
+
+    if (!products)
+        return (
+            <>
+                <Heading4xl>Error</Heading4xl>
+                <Subheading>Uh-oh, something went wrong. Please try again later.</Subheading>
+            </>
+        )
 
     return (
         <>

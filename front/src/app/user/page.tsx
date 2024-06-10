@@ -16,16 +16,12 @@ const User = () => {
         const fetchOrders = async () => {
             try {
                 if (!token) return
-                
                 const data = await getOrders(token)
 
-                if (data) {
-                    setOrders(data)
-                } else {
-                    notifyFailure("Yikes, something went wrong with your orders. Let’s get this sorted out!")
-                }
+                setOrders(data)
             } catch (error: any) {
-                throw new Error(error)
+                notifyFailure("Yikes, something went wrong. Let’s get this sorted out!")
+                console.error(error)
             }
         }
 

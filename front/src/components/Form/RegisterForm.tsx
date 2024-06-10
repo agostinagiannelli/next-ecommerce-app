@@ -15,15 +15,17 @@ const RegisterForm = () => {
 
   const handleSubmit = async (user: UserProps) => {
     try {
-      const data = await registerUser(user)
-
-      if (data) {
-        notifySuccess('Welcome aboard! Login to start shopping.', () => router.push('/auth/login'))
-      } else {
-        notifyFailure('Uh-oh, something went wrong. Try again.')
-      }
+      await registerUser(user)
+      
+      notifySuccess("Welcome aboard! Login to start shopping.", () => router.push("/auth/login"))
     } catch (error: any) {
-      throw new Error(error)
+      if (error.message.includes("User already exists")) {
+        notifyFailure("Uh-oh, user already exists. Try signing in instead.")
+        console.error(error)
+      } else {
+        notifyFailure("Uh-oh, something went wrong. Try again.")
+        console.error(error)
+      }
     }
   }
 
@@ -35,7 +37,7 @@ const RegisterForm = () => {
       </div>
 
       <Formik
-        initialValues={{ name: '', email: '', address: '', phone: '', username: '', password: '' }}
+        initialValues={{ name: "", email: "", address: "", phone: "", username: "", password: "" }}
         validate={validateRegister}
         onSubmit={handleSubmit}
       >

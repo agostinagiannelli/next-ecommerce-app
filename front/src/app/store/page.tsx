@@ -1,7 +1,8 @@
 import { getProducts } from "@/services/apiServices"
-import { notifyFailure } from "@/utils/notify"
 import { ProductProps } from "@/types/ProductProps"
 import Heading3xl from "@/components/Text/Heading3xl"
+import Heading4xl from "@/components/Text/Heading4xl"
+import Subheading from "@/components/Text/Subheading"
 import Cards from "@/components/Product/Cards"
 import Video from "@/components/Block/Video"
 
@@ -10,13 +11,17 @@ const Shop = async () => {
 
   try {
     products = await getProducts()
-
-    if (!products) {
-      notifyFailure("Yikes, something went wrong. Let’s get this sorted out!")
-    }
   } catch (error: any) {
-    throw new Error(error)
+    console.error(error)
   }
+
+  if (!products)
+    return (
+      <>
+        <Heading4xl>Error</Heading4xl>
+        <Subheading>Uh-oh, something went wrong. Please try again later.</Subheading>
+      </>
+    )
 
   return (
     <>
@@ -25,9 +30,7 @@ const Shop = async () => {
         title="Designed to amaze you."
         href="/store/product/1"
       />
-      <div className="text-center">
-        <Heading3xl>Shop Best Sellers</Heading3xl>
-      </div>
+      <Heading3xl>Shop Best Sellers</Heading3xl>
       <Cards products={products} />
     </>
   )

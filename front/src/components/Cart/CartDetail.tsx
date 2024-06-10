@@ -19,18 +19,14 @@ const CartDetail = () => {
     const handleCheckout = async () => {
         try {
             if (!token || products.length === 0) return
+            await createOrder(token, products)
 
-            const data = await createOrder(token, products)
-
-            if (data) {
-                notifySuccess('Sweet! Your new tech is on its way. Get ready to unbox the awesomeness.')
-                clearCart()
-                router.push('/user')
-            } else {
-                notifyFailure('Yikes, something went wrong. Let’s get this sorted out!')
-            }
+            notifySuccess("Sweet! Your new tech is on its way. Get ready to unbox the awesomeness.")
+            clearCart()
+            router.push("/user")
         } catch (error: any) {
-            throw new Error(error)
+            notifyFailure("Yikes, something went wrong. Let’s get this sorted out!")
+            console.error(error)
         }
     }
 

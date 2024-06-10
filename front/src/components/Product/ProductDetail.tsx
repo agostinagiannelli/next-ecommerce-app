@@ -40,7 +40,7 @@ const ProductDetail: React.FC<{ product: ProductProps | undefined }> = ({ produc
                         alt={product?.name || "Product"}
                         width={500}
                         height={500}
-                        className="object-contain h-full"
+                        className="object-contain w-full h-full"
                     />
                 </div>
                 <div>
