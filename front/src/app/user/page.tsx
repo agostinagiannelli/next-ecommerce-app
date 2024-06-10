@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react"
 import { useAuth } from "@/context/AuthContext"
 import { getOrders } from "@/services/apiServices"
-import { notifyFailure } from "@/utils/notify"
 import { IOrder } from "@/types"
 import Heading4xl from "@/components/Text/Heading4xl"
 import UserDetail from "@/components/User/UserDetail"
@@ -20,7 +19,6 @@ const User = () => {
 
                 setOrders(data)
             } catch (error: any) {
-                notifyFailure("Yikes, something went wrong. Let’s get this sorted out!")
                 console.error(error)
             }
         }

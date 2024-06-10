@@ -19,7 +19,7 @@ const ProductDetail: React.FC<{ product: ProductProps | undefined }> = ({ produc
         if (!product) return
 
         if (!token) {
-            notifyFailure('Let’s fill that cart! Please login to get started.', () => router.push('/auth/login'))
+            notifyFailure("Let’s fill that cart! Please login to get started.", () => router.push("/auth/login"))
         } else {
             const isInCart = cartItems.find(item => item.id === product.id)
             if (isInCart) {

@@ -35,21 +35,19 @@ const LoginForm = () => {
     } catch (error: any) {
       if (error.message.includes("Invalid password")) {
         notifyFailure("Uh-oh, your password isn't quite right. Try again.")
-        console.error(error)
       } else if (error.message.includes("User does not exist")) {
         notifyFailure("Uh-oh, user not found. Check your details.")
-        console.error(error)
       } else {
         notifyFailure("Uh-oh, something went wrong. Try again.")
-        console.error(error)
       }
+      console.error(error)
     }
   }
 
   if (token) {
     return (
       <div className="flex gap-2">
-        <span className="text-lg text-contrast">Oops! Looks like you&apos;re already logged in.</span>
+        <span className="text-lg text-contrast">Looks like you&apos;re already logged in.</span>
         <LinkTextArrow href="/store" className="text-lg text-primary">Go to Shop</LinkTextArrow>
       </div>
     )

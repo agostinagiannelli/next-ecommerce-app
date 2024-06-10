@@ -16,16 +16,15 @@ const RegisterForm = () => {
   const handleSubmit = async (user: UserProps) => {
     try {
       await registerUser(user)
-      
+
       notifySuccess("Welcome aboard! Login to start shopping.", () => router.push("/auth/login"))
     } catch (error: any) {
       if (error.message.includes("User already exists")) {
         notifyFailure("Uh-oh, user already exists. Try signing in instead.")
-        console.error(error)
       } else {
         notifyFailure("Uh-oh, something went wrong. Try again.")
-        console.error(error)
       }
+      console.error(error)
     }
   }
 

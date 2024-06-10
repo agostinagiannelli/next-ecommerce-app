@@ -1,6 +1,3 @@
-"use client"
-
-import { useState, useEffect } from "react"
 import { getProductsByCategory } from "@/services/apiServices"
 import { categories } from "@/utils/categories"
 import { ProductProps } from "@/types/ProductProps"
@@ -10,37 +7,27 @@ import Heading4xl from "@/components/Text/Heading4xl"
 import Subheading from "@/components/Text/Subheading"
 import LinkTextArrow from "@/components/Link/LinkTextArrow"
 
-const Category = ({ params }: { params: { categoryId: string } }) => {
-    const [products, setProducts] = useState<ProductProps[]>()
-    const [categoryName, setCategoryName] = useState<string>("")
+const Category = async ({ params }: { params: { categoryId: string } }) => {
+    let products: ProductProps[] | undefined
+    let categoryName: string = ""
 
-    useEffect(() => {
-        const fetchProducts = async () => {
-            try {
-                if (!params.categoryId) return
+    try {
+        const categoryIndex = parseInt(params.categoryId, 10) - 1
+        categoryName = categories[categoryIndex]?.name || ""
 
-                const categoryIndex = parseInt(params.categoryId, 10) - 1;
-                const categoryName = categories[categoryIndex]?.name || "";
-                setCategoryName(categoryName)
+        products = await getProductsByCategory(params.categoryId)
+    } catch (error: any) {
+        console.error(error)
+    }
 
-                const products = await getProductsByCategory(params.categoryId)
-                setProducts(products)
-            }
-            catch (error: any) {
-                console.error(error)
-            }
-        }
-
-        fetchProducts()
-    }, [params.categoryId])
-
-    if (!products)
+    if (!products) {
         return (
             <>
                 <Heading4xl>Error</Heading4xl>
                 <Subheading>Uh-oh, something went wrong. Please try again later.</Subheading>
             </>
         )
+    }
 
     return (
         <>

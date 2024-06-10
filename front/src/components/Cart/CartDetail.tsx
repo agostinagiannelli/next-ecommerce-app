@@ -58,7 +58,10 @@ const CartDetail = () => {
         <div className="w-full max-w-2xl border border-black rounded-lg">
             <ul className="p-4 space-y-4">
                 {cartItems.map(product => (
-                    <CartProduct key={product.id} product={product} />
+                    <CartProduct
+                        key={product.id}
+                        product={product}
+                    />
                 ))}
             </ul>
             <div className="px-12 lg:px-14 py-4">

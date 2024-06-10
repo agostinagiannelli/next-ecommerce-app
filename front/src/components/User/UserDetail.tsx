@@ -1,3 +1,5 @@
+"use client"
+
 import { useAuth } from "@/context/AuthContext"
 import { useCart } from "@/context/CartContext"
 import { notifySuccess } from "@/utils/notify"
@@ -12,7 +14,7 @@ const UserDetail: React.FC<{ orders: IOrder[] | undefined }> = ({ orders }) => {
     const handleLogout = () => {
         setAuthData(null, null)
         clearCart()
-        notifySuccess('Catch you later! We’re here for your next tech spree.')
+        notifySuccess("Catch you later! We’re here for your next tech spree.")
     }
 
     if (!user) {
