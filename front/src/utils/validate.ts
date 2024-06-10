@@ -33,7 +33,7 @@ export function validateRegister(values: UserProps) {
     }
     if (!values.password) {
         errors.password = "⚠️ Hey, this one’s mandatory!"
-    } else if (!/^(?=.*[!@#$%^&*()_+={}:;<>?|[\]\\'"/.,"~]).{6,20}$/.test(values.password)) {
+    } else if (!/^(?=.*[!@#$%^&*()-_+={}:;<>?|[\]\\'"/.,"~]).{6,20}$/.test(values.password)) {
         errors.password = "⚠️ Passwords should have 6-20 characters, including at least one special character"
     }    
     return errors
