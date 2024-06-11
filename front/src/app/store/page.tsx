@@ -1,6 +1,6 @@
-"use client"
-import { useState, useEffect } from "react"
-import { useAuth } from "@/context/AuthContext"
+// "use client"
+// import { useState, useEffect } from "react"
+// import { useAuth } from "@/context/AuthContext"
 
 import { getProducts } from "@/services/apiServices"
 import { ProductProps } from "@/types/ProductProps"
@@ -10,40 +10,40 @@ import Subheading from "@/components/Text/Subheading"
 import Cards from "@/components/Product/Cards"
 import Video from "@/components/Block/Video"
 
-const Shop = () => { // Agregar filtro de búsqueda
-  const [products, setProducts] = useState<ProductProps[]>([])
-  const [filter, setFilter] = useState<string>("")
+// const Shop = () => { // Agregar filtro de búsqueda
+//   const [products, setProducts] = useState<ProductProps[]>([])
+//   const [filter, setFilter] = useState<string>("")
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const fetchedProducts = await getProducts()
-        setProducts(fetchedProducts)
-      } catch (error: any) {
-        console.error(error)
-      }
+//   useEffect(() => {
+//     const fetchProducts = async () => {
+//       try {
+//         const fetchedProducts = await getProducts()
+//         setProducts(fetchedProducts)
+//       } catch (error: any) {
+//         console.error(error)
+//       }
+//     }
+
+//     fetchProducts()
+//   }, [])
+
+//   const filteredProducts = products.filter(product => product.name.toLowerCase().includes(filter.toLowerCase())
+//   )
+
+//   const { token } = useAuth() // Restringir acceso a usuarios no autenticados
+
+//   if (!token) {
+//     return null
+//   }
+
+  const Shop = async () => {
+    let products: ProductProps[] | undefined
+
+    try {
+      products = await getProducts()
+    } catch (error: any) {
+      console.error(error)
     }
-
-    fetchProducts()
-  }, [])
-
-  const filteredProducts = products.filter(product => product.name.toLowerCase().includes(filter.toLowerCase())
-  )
-
-  const { token } = useAuth() // Restringir acceso a usuarios no autenticados
-
-  if (!token) {
-    return null
-  }
-
-  // const Shop = async () => {
-  //   let products: ProductProps[] | undefined
-
-  //   try {
-  //     products = await getProducts()
-  //   } catch (error: any) {
-  //     console.error(error)
-  //   }
 
   if (!products)
     return (
@@ -61,9 +61,9 @@ const Shop = () => { // Agregar filtro de búsqueda
         href="/store/product/1"
       />
       <Heading3xl>Shop Best Sellers</Heading3xl>
-      {/* <Cards products={products} /> */}
+      <Cards products={products} />
 
-      <div>
+      {/* <div>
         <input
           type="text"
           value={filter}
@@ -72,7 +72,7 @@ const Shop = () => { // Agregar filtro de búsqueda
           className="w-full p-2 border border-contrast rounded-lg"
         />
       </div>
-      <Cards products={filteredProducts} />
+      <Cards products={filteredProducts} /> */}
     </>
   )
 }
