@@ -3,14 +3,14 @@
 import { createContext, useContext, useState, useEffect } from "react"
 import { ProductProps } from "@/types/ProductProps"
 
-interface CartContextType {
+interface CartContextProps {
     cartItems: ProductProps[]
     addToCart: (product: ProductProps) => void
     removeFromCart: (productId: number) => void
     clearCart: () => void
 }
 
-const CartContext = createContext<CartContextType | undefined>(undefined)
+const CartContext = createContext<CartContextProps | undefined>(undefined)
 
 export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const [cartItems, setCartItems] = useState<ProductProps[]>([])

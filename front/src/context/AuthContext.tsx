@@ -12,10 +12,10 @@ interface AuthContextProps {
 const AuthContext = createContext<AuthContextProps>({
     token: null,
     user: null,
-    setAuthData: () => {},
+    setAuthData: () => { },
 })
 
-export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
+export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const [token, setToken] = useState<string | null>(null)
     const [user, setUser] = useState<UserProps | null>(null)
 
@@ -23,10 +23,10 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         const storedToken = localStorage.getItem("token")
         if (storedToken) {
             setToken(storedToken)
-            const storedUser = localStorage.getItem("user")
-            if (storedUser) {
-                setUser(JSON.parse(storedUser))
-            }
+        }
+        const storedUser = localStorage.getItem("user")
+        if (storedUser) {
+            setUser(JSON.parse(storedUser))
         }
     }, [])
 
