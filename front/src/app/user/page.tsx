@@ -26,6 +26,11 @@ const User = () => {
         fetchOrders()
     }, [token])
 
+    useEffect(() => {
+        document.title = "Profile · Codecraft"
+        document.querySelector('meta[name="description"]')?.setAttribute("content", "Your one-stop shop for all things tech.")
+    }, [])
+
     return (
         <>
             <Heading4xl>Profile</Heading4xl>

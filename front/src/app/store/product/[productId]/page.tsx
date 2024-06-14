@@ -5,6 +5,21 @@ import Heading4xl from "@/components/Text/Heading4xl"
 import Subheading from "@/components/Text/Subheading"
 import LinkTextArrow from "@/components/Link/LinkTextArrow"
 
+export const generateMetadata = async ({ params }: { params: { productId: string } }) => {
+    let product: ProductProps | undefined
+
+    try {
+        product = await getProductById(params.productId)
+    } catch (error: any) {
+        console.error(error)
+    }
+
+    return {
+        title: `${product?.name} · Codecraft`,
+        description: product?.description
+    }
+}
+
 const Product = async ({ params }: { params: { productId: string } }) => {
     let product: ProductProps | undefined
 

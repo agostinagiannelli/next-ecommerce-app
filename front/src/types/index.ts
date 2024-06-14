@@ -1,5 +1,6 @@
 export interface ICategory {
-    name: string
+    name: string,
+    description: string
 }
 
 export interface IProduct {

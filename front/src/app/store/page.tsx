@@ -6,6 +6,13 @@ import Subheading from "@/components/Text/Subheading"
 import Cards from "@/components/Product/Cards"
 import Video from "@/components/Block/Video"
 
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Codecraft · Shop Smartphones, Computers, Tablets & More",
+  description: "Your one-stop shop for all things tech.",
+}
+
 const Shop = async () => {
   let products: ProductProps[] | undefined
 

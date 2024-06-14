@@ -7,6 +7,27 @@ import Heading4xl from "@/components/Text/Heading4xl"
 import Subheading from "@/components/Text/Subheading"
 import LinkTextArrow from "@/components/Link/LinkTextArrow"
 
+export const generateMetadata = async ({ params }: { params: { categoryId: string } }) => {
+    let products: ProductProps[] | undefined
+    let categoryName: string = ""
+    let categoryDescription: string = ""
+
+    try {
+        const categoryIndex = parseInt(params.categoryId, 10) - 1
+        categoryName = categories[categoryIndex]?.name || ""
+        categoryDescription = categories[categoryIndex]?.description || ""
+
+        products = await getProductsByCategory(params.categoryId)
+    } catch (error: any) {
+        console.error(error)
+    }
+
+    return {
+        title: `${categoryName} · Codecraft`,
+        description: categoryDescription
+    }
+}
+
 const Category = async ({ params }: { params: { categoryId: string } }) => {
     let products: ProductProps[] | undefined
     let categoryName: string = ""

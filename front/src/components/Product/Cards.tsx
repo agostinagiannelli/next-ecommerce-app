@@ -1,5 +1,7 @@
-import Card from "@/components/Product/Card"
+import dynamic from "next/dynamic"
 import { ProductProps } from "@/types/ProductProps"
+
+const Card = dynamic(() => import("@/components/Product/Card"))
 
 const Cards: React.FC<{ products: ProductProps[] | undefined }> = ({ products }) => {
     return (

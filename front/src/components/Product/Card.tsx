@@ -40,6 +40,7 @@ const Card: React.FC<{ product: ProductProps | undefined }> = ({ product }) => {
                         alt={product?.name || "Product"}
                         width={500}
                         height={500}
+                        loading="lazy"
                         className="object-contain h-full"
                     />
                 </div>
