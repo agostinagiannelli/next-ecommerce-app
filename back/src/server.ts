@@ -5,7 +5,42 @@ import morgan from "morgan";
 
 const app = express();
 
-app.use(cors());
+// const allowedOrigins = [
+//   'https://codecraft-agostina.vercel.app',
+//   'http://localhost:3000'
+// ];
+
+// const corsOptions = {
+//   origin: function (origin: any, callback: any) {
+//     if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+//       callback(null, true);
+//     } else {
+//       callback(new Error('Not allowed by CORS'));
+//     }
+//   }
+// };
+
+// app.use(cors(corsOptions));
+
+const allowedOrigins = [
+  'https://codecraft-agostina.vercel.app',
+  'http://localhost:3000'
+];
+
+const corsOptions = {
+  origin: function (origin: any, callback: any) {
+    // Permitir todos los orígenes durante el desarrollo con ngrok
+    if (process.env.NODE_ENV === 'development' || allowedOrigins.indexOf(origin) !== -1 || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+};
+
+app.use(cors(corsOptions));
+
+// app.use(cors());
 app.use(express.json());
 app.use(morgan("dev"));
 

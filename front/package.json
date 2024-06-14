@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "back": "ngrok http --domain=adequate-uniformly-dingo.ngrok-free.app 8001"
   },
   "dependencies": {
     "formik": "^2.4.6",
